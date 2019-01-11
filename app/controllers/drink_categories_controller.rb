@@ -1,4 +1,5 @@
 class DrinkCategoriesController < ApplicationController
+  before_action :authorize_admin
   before_action :set_drink_category, only: [:show, :edit, :update, :destroy]
 
   # GET /drink_categories
@@ -62,6 +63,11 @@ class DrinkCategoriesController < ApplicationController
   end
 
   private
+    def authorize_admin
+      redirect_to root_path, alert: "Permissions denied" unless
+        current_user && current_user.admin
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_drink_category
       @drink_category = DrinkCategory.find(params[:id])
