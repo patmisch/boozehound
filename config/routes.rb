@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :drink_categories
   devise_for :users
 
   authenticated :user do 

@@ -1,0 +1,2 @@
+class DrinkCategory < ApplicationRecord
+end
