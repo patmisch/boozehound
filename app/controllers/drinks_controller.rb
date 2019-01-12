@@ -1,5 +1,5 @@
 class DrinksController < ApplicationController
-  before_action :authorize_admin
+  before_action :authorize_admin, only: [:edit, :update, :destroy]
   before_action :set_drink, only: [:show, :edit, :update, :destroy]
 
   # GET /drinks
@@ -16,6 +16,7 @@ class DrinksController < ApplicationController
   # GET /drinks/new
   def new
     @drink = Drink.new
+    @categories = DrinkCategory.all
   end
 
   # GET /drinks/1/edit
