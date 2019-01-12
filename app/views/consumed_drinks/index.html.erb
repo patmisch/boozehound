@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Consumed Drinks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Drink</th>
+      <th>Price paid</th>
+      <th>Amount consumed</th>
+      <th>Next day condition</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @consumed_drinks.each do |consumed_drink| %>
+      <tr>
+        <td><%= consumed_drink.user_id %></td>
+        <td><%= consumed_drink.drink_id %></td>
+        <td><%= consumed_drink.price_paid %></td>
+        <td><%= consumed_drink.amount_consumed %></td>
+        <td><%= consumed_drink.next_day_condition %></td>
+        <td><%= link_to 'Show', consumed_drink %></td>
+        <td><%= link_to 'Edit', edit_consumed_drink_path(consumed_drink) %></td>
+        <td><%= link_to 'Destroy', consumed_drink, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Consumed Drink', new_consumed_drink_path %>

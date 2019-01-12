@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @consumed_drink.user_id %>
+</p>
+
+<p>
+  <strong>Drink:</strong>
+  <%= @consumed_drink.drink_id %>
+</p>
+
+<p>
+  <strong>Price paid:</strong>
+  <%= @consumed_drink.price_paid %>
+</p>
+
+<p>
+  <strong>Amount consumed:</strong>
+  <%= @consumed_drink.amount_consumed %>
+</p>
+
+<p>
+  <strong>Next day condition:</strong>
+  <%= @consumed_drink.next_day_condition %>
+</p>
+
+<%= link_to 'Edit', edit_consumed_drink_path(@consumed_drink) %> |
+<%= link_to 'Back', consumed_drinks_path %>
