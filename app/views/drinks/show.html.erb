@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @drink.name %>
+</p>
+
+<p>
+  <strong>Drink category:</strong>
+  <%= @drink.drink_category_id %>
+</p>
+
+<p>
+  <strong>Producer:</strong>
+  <%= @drink.producer_id %>
+</p>
+
+<p>
+  <strong>Abv:</strong>
+  <%= @drink.abv %>
+</p>
+
+<%= link_to 'Edit', edit_drink_path(@drink) %> |
+<%= link_to 'Back', drinks_path %>

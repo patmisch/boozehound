@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  drink_category_id: 1
+  producer_id: 1
+  abv: 1.5
+
+two:
+  name: MyString
+  drink_category_id: 1
+  producer_id: 1
+  abv: 1.5

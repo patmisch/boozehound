@@ -10,13 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_11_200308) do
+ActiveRecord::Schema.define(version: 2019_01_12_041003) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_trgm"
   enable_extension "plpgsql"
+
+  create_table "consumed_drinks", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "drink_id"
+    t.integer "price_paid"
+    t.integer "amount_consumed"
+    t.integer "next_day_condition"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "drink_categories", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "drinks", force: :cascade do |t|
+    t.string "name"
+    t.integer "drink_category_id"
+    t.integer "producer_id"
+    t.float "abv"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

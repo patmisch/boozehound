@@ -63,10 +63,10 @@ class DrinkCategoriesController < ApplicationController
   end
 
   private
-    def authorize_admin
-      redirect_to root_path, alert: "Permissions denied" unless
-        current_user && current_user.admin
-    end
+    # def authorize_admin
+    #   redirect_to root_path, alert: "Permissions denied" unless
+    #     current_user && current_user.admin
+    # end
 
     # Use callbacks to share common setup or constraints between actions.
     def set_drink_category
