@@ -63,6 +63,11 @@ class DrinksController < ApplicationController
     end
   end
 
+  def type_selected
+    @category = DrinkCategory.find(params[:category_id])
+    render partial: 'new_drink' 
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_drink

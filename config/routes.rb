@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :drinks
+  resources :drinks do
+    collection do
+      get 'type_selected'
+    end
+  end
   resources :consumed_drinks
   resources :drink_categories
   devise_for :users

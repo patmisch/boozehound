@@ -1,0 +1,19 @@
+<div class="field">
+  <div class="control" data-controller="autocomplete">
+    <label class="label is-large">What <%= @category.producer_title %>?</label>
+    <input
+      class="input is-large"
+      name="producer"
+      placeholder="start typing to search"
+      data-target="autocomplete.input"
+    /> 
+    <input type="hidden" name="producer" data-target="autocomplete.hidden"/>
+    <ul data-target="autocomplete.results"></ul>
+  </div>
+</div>
+<div class="field">
+  <div class="control">
+    <label class="label is-large">What's it called?</label>
+    <input class="input is-large" name="name" placeholder="start typing to search"/> 
+  </div>
+</div>
