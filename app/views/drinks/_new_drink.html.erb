@@ -1,5 +1,9 @@
 <div class="field">
-  <div class="control" data-controller="autocomplete">
+  <div 
+    class="control"
+    data-controller="autocomplete"
+    data-autocomplete-url="<%= search_producers_path %>"
+  >
     <label class="label is-large">What <%= @category.producer_title %>?</label>
     <input
       class="input is-large"

@@ -13,4 +13,11 @@ Rails.application.routes.draw do
   end
 
   root to: "home#index"
+
+
+  resources :producers do
+    collection do
+      get 'search'
+    end
+  end
 end
