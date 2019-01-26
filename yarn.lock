@@ -5240,13 +5240,6 @@ stdout-stream@^1.4.0:
   dependencies:
     readable-stream "^2.0.1"
 
-stimulus-autocomplete@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/stimulus-autocomplete/-/stimulus-autocomplete-1.2.1.tgz#00a88986c274544ede7c9e68cbc2722b95116bef"
-  dependencies:
-    lodash.debounce "^4.0.8"
-    stimulus "^1.1.0"
-
 stimulus@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/stimulus/-/stimulus-1.1.0.tgz#d313e59bc0085eec5e072a401e0fb2c5fb0a0301"

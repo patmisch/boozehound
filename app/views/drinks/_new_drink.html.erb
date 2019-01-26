@@ -1,18 +1,27 @@
-<div class="field">
-  <div 
-    class="control"
-    data-controller="autocomplete"
-    data-autocomplete-url="<%= search_producers_path %>"
-  >
-    <label class="label is-large">What <%= @category.producer_title %>?</label>
-    <input
-      class="input is-large"
-      name="producer"
-      placeholder="start typing to search"
-      data-target="autocomplete.input"
-    /> 
-    <input type="hidden" name="producer" data-target="autocomplete.hidden"/>
-    <ul data-target="autocomplete.results"></ul>
+<div
+  class="dropdown"
+  data-controller="autocomplete"
+  data-target="autocomplete.dropdown"
+  data-autocomplete-search-url="<%= search_producers_path %>"
+  data-autocomplete-save-key="selectedProducerId"
+>
+  <div class="field">
+    <div class="control">
+      <label class="label is-large">What <%= @category.producer_title %>?</label>
+      <input
+        class="input is-large"
+        name="producer"
+        placeholder="<%= @category.producer_title %>"
+        data-target="autocomplete.input"
+        data-action="keyup->autocomplete#search"
+        autocomplete="off"
+      />
+    </div>
+  </div>
+  <div class="dropdown-menu" role="menu">
+    <div class="dropdown-content">
+      <div class="buttons dropdown-item" data-target="autocomplete.content"></div>
+    </div>
   </div>
 </div>
 <div class="field">

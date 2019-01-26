@@ -1,3 +1,7 @@
 <% @producers.each do |producer| %>
-  <li role="option" data-autocomplete-value="<%= producer.id %>"><%= producer.name %></li>
+    <button
+      class="button is-info"
+      value="<%= producer.id %>"
+      data-action="click->autocomplete#selected"
+    ><%= producer.name %></button>
 <% end %>
