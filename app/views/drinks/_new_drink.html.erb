@@ -24,9 +24,29 @@
     </div>
   </div>
 </div>
-<div class="field">
-  <div class="control">
-    <label class="label is-large">What's it called?</label>
-    <input class="input is-large" name="name" placeholder="start typing to search"/> 
+<div
+  class="dropdown field"
+  data-controller="autocomplete"
+  data-target="autocomplete.dropdown"
+  data-autocomplete-search-url="<%= search_drinks_path %>"
+  data-autocomplete-save-key="selectedDrinkId"
+>
+  <div class="field">
+    <div class="control">
+      <label class="label is-large">What's it called?</label>
+      <input
+        class="input is-large"
+        name="drink"
+        placeholder="Drink"
+        data-target="autocomplete.input"
+        data-action="keyup->autocomplete#search"
+        autocomplete="off"
+      /> 
+    </div>
+  </div>
+  <div class="dropdown-menu" role="menu">
+    <div class="dropdown-content">
+      <div class="buttons dropdown-item" data-target="autocomplete.content"></div>
+    </div>
   </div>
 </div>

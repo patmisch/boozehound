@@ -1,6 +1,6 @@
 class ProducersController < ApplicationController
   def search
-    @producers = Producer.search_by_name(params[:q])
-    render layout: false
+    @items = Producer.search_by_name(params[:q])
+    render partial: 'shared/dropdown_search'
   end
 end

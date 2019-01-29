@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-  resources :drinks do
-    collection do
-      get 'type_selected'
-    end
-  end
-  resources :consumed_drinks
-  resources :drink_categories
   devise_for :users
 
   authenticated :user do 
@@ -20,4 +13,14 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
+
+  resources :drinks do
+    collection do
+      get 'type_selected'
+      get 'search'
+    end
+  end
+
+  resources :consumed_drinks
+  resources :drink_categories
 end

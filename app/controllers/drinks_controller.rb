@@ -68,6 +68,11 @@ class DrinksController < ApplicationController
     render partial: 'new_drink' 
   end
 
+  def search
+    @items = Drink.search_by_name(params[:q])
+    render partial: 'shared/dropdown_search'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_drink

@@ -1,0 +1,7 @@
+<% @items.each do |item| %>
+    <button
+      class="button is-info"
+      value="<%= item.id %>"
+      data-action="click->autocomplete#selected"
+    ><%= item.name %></button>
+<% end %>
