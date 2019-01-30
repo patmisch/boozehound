@@ -69,8 +69,12 @@ class DrinksController < ApplicationController
   end
 
   def search
-    @items = Drink.search_by_name(params[:q])
-    render partial: 'shared/dropdown_search'
+    @items = Drink.search_by_name_and_producer(params[:q]).includes(:producer)
+    if @items.any?
+      render partial: 'shared/dropdown_search'
+    else
+      render partial: 'add_new_drink'
+    end
   end
 
   private
