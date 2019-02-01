@@ -3,6 +3,7 @@ require 'test_helper'
 class ConsumedDrinksControllerTest < ActionDispatch::IntegrationTest
   setup do
     @consumed_drink = consumed_drinks(:one)
+    @categories = drink_categories(:one)
   end
 
   test "should get index" do

@@ -27,12 +27,13 @@ class DrinksController < ApplicationController
   # POST /drinks.json
   def create
     @drink = Drink.new(drink_params)
-
+    @categories = DrinkCategory.all
     respond_to do |format|
       if @drink.save
         format.html { redirect_to @drink, notice: 'Drink was successfully created.' }
         format.json { render :show, status: :created, location: @drink }
       else
+        puts @drink.errors.first.message
         format.html { render :new }
         format.json { render json: @drink.errors, status: :unprocessable_entity }
       end

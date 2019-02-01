@@ -1,8 +1,16 @@
 require 'test_helper'
 
 class DrinksControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
   setup do
+    @producer = producers(:one)
     @drink = drinks(:one)
+    @drink.producer = @producer
+    @categories = [drink_categories(:one)]
+    @user = users(:one)
+
+    @user.admin = true
+    sign_in @user
   end
 
   test "should get index" do

@@ -15,7 +15,6 @@ class ConsumedDrinksController < ApplicationController
   # GET /consumed_drinks/new
   def new
     @consumed_drink = ConsumedDrink.new
-    @categories = DrinkCategory.all
   end
 
   # GET /consumed_drinks/1/edit

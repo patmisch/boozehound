@@ -1,10 +1,10 @@
-<%= form_with url: url do |form| %>
+<%= form_with(model: consumed_drink, local: true) do |form| %>
   <% if @consumed_drink.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@consumed_drink.errors.count, "error") %> prohibited this consumed_drink from being saved:</h2>
+      <h2><%= pluralize(consumed_drink.errors.count, "error") %> prohibited this consumed_drink from being saved:</h2>
 
       <ul>
-      <% @consumed_drink.errors.full_messages.each do |message| %>
+      <% consumed_drink.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
