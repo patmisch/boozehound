@@ -13,14 +13,21 @@ class DrinksTest < ApplicationSystemTestCase
   end
 
   test "creating a Drink" do
+    @producer = producers(:one)
     visit drinks_url
     click_on "New Drink"
 
     select 'Beer', from: 'drink[drink_category_id]'
     assert_selector "label", text: "What Brewery?"
 
+    fill_in "producerText", with: "Founders"
+    click_on "Founders"
+    fill_in "drink[name]", with: "Solid Gold"
+    fill_in "drink[abv]", with: "5.1"
 
-    # assert_text "Drink was successfully created"
+    click_on "Save"
+
+    assert_text "Drink was successfully created"
     # click_on "Back"
   end
 
