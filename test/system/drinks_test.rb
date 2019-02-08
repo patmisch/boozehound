@@ -28,6 +28,7 @@ class DrinksTest < ApplicationSystemTestCase
     click_on "Save"
 
     assert_text "Drink was successfully created"
+    assert_text "What are you Drinking?"
     # click_on "Back"
   end
 
