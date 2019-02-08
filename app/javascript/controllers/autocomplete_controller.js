@@ -1,7 +1,7 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-  static targets = ['input', 'content', 'dropdown'];
+  static targets = ['input', 'content', 'dropdown', 'hiddenValue'];
 
   search(e) {
     fetch(`${this.data.get('searchUrl')}?q=${e.target.value}`)
@@ -19,6 +19,7 @@ export default class extends Controller {
   selected(e) {
     e.preventDefault();
     this.inputTarget.value = e.target.innerHTML;
+    this.hiddenValueTarget.value = e.target.value;
     const dataKey = this.data.get('saveKey');
     this.data.set(dataKey, e.target.value);
     this.dropdownTarget.classList.remove('is-active');

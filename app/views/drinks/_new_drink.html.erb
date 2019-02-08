@@ -8,11 +8,16 @@
     <label class="label is-large">What <%= @category.producer_title %>?</label>
     <input
       class="input is-large"
-      name="producer"
+      name="producerText"
       placeholder="<%= @category.producer_title %>"
       data-target="autocomplete.input"
       data-action="keyup->autocomplete#search"
       autocomplete="off"
+    />
+    <input
+      type="hidden"
+      name="drink[producer_id]"
+      data-target="autocomplete.hiddenValue"
     />
   </div>
   <div
@@ -31,9 +36,25 @@
     <label class="label is-large">What's it called?</label>
     <input
       class="input is-large"
-      name="drink"
+      name="drink[name]"
       placeholder="Drink"
       autocomplete="off"
     /> 
+  </div>
+</div>
+<div class="field">
+  <div class="control">
+    <label class="label is-large">Know the ABV?</label>
+    <input
+      class="input is-large"
+      name="drink[abv]"
+      placeholder="5.0"
+      autocomplete="off"
+    /> 
+  </div>
+</div>
+<div class="field">
+  <div class="control">
+  <button class="button is-primary">Save</button>
   </div>
 </div>

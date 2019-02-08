@@ -19,7 +19,7 @@
     <div class="control">
       <label class="label is-large">What Type of Drink?</label>
       <div class="select is-large">
-        <select data-action="drinks#typeSelected">
+        <select name="drink[drink_category_id]" data-action="drinks#typeSelected">
           <option>Select Drink Type</option>
           <% @categories.each do |cat| %>
             <option value="<%= cat.id %>"><%= cat.name %></option>

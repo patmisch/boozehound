@@ -1,8 +1,10 @@
 require "application_system_test_case"
 
 class DrinksTest < ApplicationSystemTestCase
+  include Devise::Test::IntegrationHelpers
   setup do
     @drink = drinks(:one)
+    # @category = drink_categories(:one)
   end
 
   test "visiting the index" do
@@ -14,31 +16,38 @@ class DrinksTest < ApplicationSystemTestCase
     visit drinks_url
     click_on "New Drink"
 
-    fill_in "Abv", with: @drink.abv
-    fill_in "Drink category", with: @drink.drink_category_id
-    fill_in "Name", with: @drink.name
-    fill_in "Producer", with: @drink.producer_id
-    click_on "Create Drink"
+    select 'Beer', from: 'drink[drink_category_id]'
+    assert_selector "label", text: "What Brewery?"
 
-    assert_text "Drink was successfully created"
-    click_on "Back"
+
+    # assert_text "Drink was successfully created"
+    # click_on "Back"
   end
 
-  test "updating a Drink" do
+
+  test "destroying a Drink as non user" do
     visit drinks_url
-    click_on "Edit", match: :first
+    page.accept_confirm do
+      click_on "Destroy", match: :first
+    end
 
-    fill_in "Abv", with: @drink.abv
-    fill_in "Drink category", with: @drink.drink_category_id
-    fill_in "Name", with: @drink.name
-    fill_in "Producer", with: @drink.producer_id
-    click_on "Update Drink"
-
-    assert_text "Drink was successfully updated"
-    click_on "Back"
+    assert_text "Permissions denied"
   end
 
-  test "destroying a Drink" do
+  test "destroying a Drink as user" do
+    @user = users(:one)
+    sign_in @user
+    visit drinks_url
+    page.accept_confirm do
+      click_on "Destroy", match: :first
+    end
+
+    assert_text "Permissions denied"
+  end
+
+  test "destroying a Drink as admin" do
+    @user = users(:admin)
+    sign_in @user
     visit drinks_url
     page.accept_confirm do
       click_on "Destroy", match: :first

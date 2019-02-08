@@ -15,3 +15,11 @@ one:
   encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
   created_at: <%= Time.now - 6.minutes %>
   updated_at: <%= Time.now - 4.minutes %>
+
+admin:
+  id: '2'
+  email: 'admin@example.com'
+  encrypted_password: <%= Devise::Encryptor.digest(User, "password") %>
+  created_at: <%= Time.now - 7.minutes %>
+  updated_at: <%= Time.now - 5.minutes %>
+  admin: true
