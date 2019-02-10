@@ -9,9 +9,10 @@ class ConsumedDrinkDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    user_id: Field::Number,
+    user: Field::BelongsTo,
     drink_id: Field::Number,
     price_paid: Field::Number,
+    purchase_size: Field::BelongsTo,
     amount_consumed: Field::Number,
     next_day_condition: Field::Number,
     created_at: Field::DateTime,
@@ -25,18 +26,20 @@ class ConsumedDrinkDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :id,
-    :user_id,
+    :user,
     :drink_id,
     :price_paid,
+    :purchase_size,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :id,
-    :user_id,
+    :user,
     :drink_id,
     :price_paid,
+    :purchase_size,
     :amount_consumed,
     :next_day_condition,
     :created_at,
@@ -47,9 +50,10 @@ class ConsumedDrinkDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :user_id,
+    :user,
     :drink_id,
     :price_paid,
+    :purchase_size,
     :amount_consumed,
     :next_day_condition,
   ].freeze

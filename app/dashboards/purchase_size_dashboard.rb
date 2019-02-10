@@ -54,7 +54,7 @@ class PurchaseSizeDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how purchase sizes are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(purchase_size)
-  #   "PurchaseSize ##{purchase_size.id}"
-  # end
+  def display_resource(purchase_size)
+    "PurchaseSize ##{purchase_size.name}"
+  end
 end
