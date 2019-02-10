@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_30_015408) do
+ActiveRecord::Schema.define(version: 2019_02_10_190118) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -53,6 +53,15 @@ ActiveRecord::Schema.define(version: 2019_01_30_015408) do
 
   create_table "producers", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "purchase_sizes", force: :cascade do |t|
+    t.string "name"
+    t.float "units"
+    t.string "unit_type"
+    t.integer "drink_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
