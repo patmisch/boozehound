@@ -44,7 +44,7 @@ class ProducerDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how producers are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(producer)
-  #   "Producer ##{producer.id}"
-  # end
+  def display_resource(producer)
+    "Producer ##{producer.name}"
+  end
 end

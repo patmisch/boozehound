@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       resources :drinks
       resources :drink_categories
       resources :producers
-
+      resources :purchase_sizes
       root to: "users#index"
     end
   devise_for :users
