@@ -1,4 +1,9 @@
-<%= form_with(model: consumed_drink, local: true) do |form| %>
+<%= form_with(model: consumed_drink, local: true,
+  html: {
+    'data-controller': 'consumed-drinks',
+    'data-consumed-drinks-purchase-size-url': purchase_sizes_for_select_consumed_drinks_path,
+  }) do |form|
+%>
   <% if @consumed_drink.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(consumed_drink.errors.count, "error") %> prohibited this consumed_drink from being saved:</h2>
@@ -12,9 +17,8 @@
   <% end %>
 
   <div 
-    class="dropdown field"
+    class="field"
     data-controller="autocomplete"
-    data-target="autocomplete.dropdown"
     data-autocomplete-search-url="<%= search_drinks_path %>"
   >
     <div class="control">
@@ -23,38 +27,60 @@
         type="text" 
         placeholder="Search for a drink"
         data-target="autocomplete.input"
-        data-action="keyup->autocomplete#search"
+        data-action="keyup->autocomplete#search change->consumed-drinks#drinkSelected"
         autocomplete="off"
       >
     </div>
-    <%= form.hidden_field :drink_id, data: {target: 'autocomplete.hiddenValue'} %>
-    <div class="dropdown-menu" role="menu">
-      <div class="dropdown-content">
-        <div class="buttons dropdown-item" data-target="autocomplete.content"></div>
+    <div
+      class="dropdown"
+      data-target="autocomplete.dropdown"
+    >
+      <%= form.hidden_field :drink_id, data: {target: 'autocomplete.hiddenValue consumed-drinks.selectedDrink'} %>
+      <div class="dropdown-menu" role="menu">
+        <div class="dropdown-content">
+          <div class="buttons dropdown-item" data-target="autocomplete.content"></div>
+        </div>
       </div>
     </div>
   </div>
-
-  <div class="field">
-    <div class="control">
-      <%= form.label :price_paid, class: 'label is-large' %>
-      <%= form.number_field :price_paid, class: 'input is-large' %>
+  <div
+    class="is-hidden"
+    data-target="consumed-drinks.hiddenForm"
+  >
+    <div class="field">
+      <div class="control">
+        <label class="label is-large">Amount Purchased</label>
+        <div class="select is-large">
+          <select  data-target="consumed-drinks.purchaseSizeSelect">
+            <option>Select a Size</option>
+          </select>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="field">
-    <div class="control">
-      <%= form.label :amount_consumed, class:'label is-large' %>
-      <%= form.number_field :amount_consumed, class: 'label is-large' %>
+    <div class="field">
+      <div class="control">
+        <%= form.label :price_paid, class: 'label is-large' %>
+        <%= form.number_field :price_paid, class: 'input is-large' %>
+      </div>
     </div>
-  </div>
 
-  <div class="field">
-    <%= form.label :next_day_condition %>
-    <%= form.number_field :next_day_condition %>
-  </div>
+    <div class="field">
+      <div class="control">
+        <%= form.label :amount_consumed, class:'label is-large' %>
+        <%= form.number_field :amount_consumed, class: 'input is-large' %>
+      </div>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
+
+
+    <div class="field">
+      <%= form.label :next_day_condition %>
+      <%= form.number_field :next_day_condition %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
   </div>
 <% end %>

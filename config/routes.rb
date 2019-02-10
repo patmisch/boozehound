@@ -30,6 +30,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :consumed_drinks
+  resources :consumed_drinks do
+    collection do
+      get 'purchase_sizes_for_select'
+    end
+  end
+
   resources :drink_categories
 end
