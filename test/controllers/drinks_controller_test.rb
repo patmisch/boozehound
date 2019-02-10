@@ -28,7 +28,7 @@ class DrinksControllerTest < ActionDispatch::IntegrationTest
       post drinks_url, params: { drink: { abv: @drink.abv, drink_category_id: @drink.drink_category_id, name: @drink.name, producer_id: @drink.producer_id } }
     end
 
-    assert_redirected_to drink_url(Drink.last)
+    assert_redirected_to new_consumed_drink_url
   end
 
   test "should show drink" do
