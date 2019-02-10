@@ -21,7 +21,6 @@ export default class extends Controller {
     this.inputTarget.value = e.target.innerHTML;
     this.hiddenValueTarget.value = e.target.value;
     const dataKey = this.data.get('saveKey');
-    this.data.set(dataKey, e.target.value);
     this.dropdownTarget.classList.remove('is-active');
 
   }

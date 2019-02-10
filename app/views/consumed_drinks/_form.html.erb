@@ -27,7 +27,7 @@
         autocomplete="off"
       >
     </div>
-    <%= form.hidden_field :drink_id %>
+    <%= form.hidden_field :drink_id, data: {target: 'autocomplete.hiddenValue'} %>
     <div class="dropdown-menu" role="menu">
       <div class="dropdown-content">
         <div class="buttons dropdown-item" data-target="autocomplete.content"></div>
@@ -36,13 +36,17 @@
   </div>
 
   <div class="field">
-    <%= form.label :price_paid %>
-    <%= form.number_field :price_paid %>
+    <div class="control">
+      <%= form.label :price_paid, class: 'label is-large' %>
+      <%= form.number_field :price_paid, class: 'input is-large' %>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.label :amount_consumed %>
-    <%= form.number_field :amount_consumed %>
+    <div class="control">
+      <%= form.label :amount_consumed, class:'label is-large' %>
+      <%= form.number_field :amount_consumed, class: 'label is-large' %>
+    </div>
   </div>
 
   <div class="field">
