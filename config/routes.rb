@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  namespace :admin do
+      resources :users
+      resources :consumed_drinks
+      resources :drinks
+      resources :drink_categories
+      resources :producers
+
+      root to: "users#index"
+    end
   devise_for :users
 
   authenticated :user do 
