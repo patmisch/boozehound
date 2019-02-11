@@ -7,4 +7,6 @@ class Producer < ApplicationRecord
         prefix: true
       } 
     }
+  
+  has_many :drinks
 end
