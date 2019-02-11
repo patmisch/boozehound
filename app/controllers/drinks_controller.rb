@@ -27,6 +27,10 @@ class DrinksController < ApplicationController
   # POST /drinks.json
   def create
     @drink = Drink.new(drink_params)
+    if drink_params[:producer_id].blank?
+      producer = Producer.create(name: params[:producer_text])
+      @drink.producer = producer
+    end
     @categories = DrinkCategory.all
     respond_to do |format|
       if @drink.save
