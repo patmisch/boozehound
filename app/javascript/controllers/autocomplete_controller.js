@@ -18,10 +18,10 @@ export default class extends Controller {
 
   selected(e) {
     e.preventDefault();
-    this.inputTarget.value = e.target.innerHTML;
+    const event = new Event('change');
     this.hiddenValueTarget.value = e.target.value;
-    const dataKey = this.data.get('saveKey');
+    this.hiddenValueTarget.dispatchEvent(event);
+    this.inputTarget.value = e.target.innerHTML;
     this.dropdownTarget.classList.remove('is-active');
-
   }
 }

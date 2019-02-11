@@ -11,7 +11,7 @@ class DrinkDashboard < Administrate::BaseDashboard
     producer: Field::BelongsTo,
     id: Field::Number,
     name: Field::String,
-    drink_category_id: Field::Number,
+    drink_category: Field::BelongsTo,
     abv: Field::Number.with_options(decimals: 2),
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -26,7 +26,7 @@ class DrinkDashboard < Administrate::BaseDashboard
     :producer,
     :id,
     :name,
-    :drink_category_id,
+    :drink_category,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -35,7 +35,7 @@ class DrinkDashboard < Administrate::BaseDashboard
     :producer,
     :id,
     :name,
-    :drink_category_id,
+    :drink_category,
     :abv,
     :created_at,
     :updated_at,
@@ -47,7 +47,7 @@ class DrinkDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :producer,
     :name,
-    :drink_category_id,
+    :drink_category,
     :abv,
   ].freeze
 

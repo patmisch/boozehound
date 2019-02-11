@@ -63,6 +63,7 @@ class ConsumedDrinksController < ApplicationController
 
   def purchase_sizes_for_select
     @purchase_sizes = Drink.find(params[:drink_id]).purchase_sizes
+    render layout: false
   end
 
   private
