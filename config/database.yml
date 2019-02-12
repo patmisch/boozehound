@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: boozehound_production
-  username: boozehound
-  password: <%= ENV['BOOZEHOUND_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
+  encoding: unicode
+  pool: 5
