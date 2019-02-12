@@ -15,6 +15,8 @@ class ConsumedDrinksController < ApplicationController
   # GET /consumed_drinks/new
   def new
     @consumed_drink = ConsumedDrink.new
+    @drink = Drink.includes(:purchase_sizes).find_by_id(params[:drink_id])
+    @purchase_sizes = @drink.purchase_sizes if @drink
   end
 
   # GET /consumed_drinks/1/edit
