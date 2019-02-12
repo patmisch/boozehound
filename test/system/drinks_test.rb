@@ -12,7 +12,7 @@ class DrinksTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Drinks"
   end
 
-  test "creating a Drink" do
+  test "creating a Drink with existing producer" do
     @producer = producers(:one)
     visit drinks_url
     click_on "New Drink"
@@ -20,7 +20,7 @@ class DrinksTest < ApplicationSystemTestCase
     select 'Beer', from: 'drink[drink_category_id]'
     assert_selector "label", text: "What Brewery?"
 
-    fill_in "producerText", with: "Founders"
+    fill_in "producer_text", with: "Founders"
     click_on "Founders"
     fill_in "drink[name]", with: "Solid Gold"
     fill_in "drink[abv]", with: "5.1"
@@ -28,10 +28,26 @@ class DrinksTest < ApplicationSystemTestCase
     click_on "Save"
 
     assert_text "Drink was successfully created"
-    assert_text "What are you Drinking?"
+    assert_text "What's the Drink?"
     # click_on "Back"
   end
 
+  test "creating a drink with new producer" do
+    visit drinks_url
+    click_on "New Drink"
+
+    select 'Wine', from: 'drink[drink_category_id]'
+    assert_selector "label", text: "What Winery?"
+
+    fill_in "producer_text", with: "New Winery"
+    fill_in "drink[name]", with: "Red Blend"
+    fill_in "drink[abv]", with: "12.3"
+
+    click_on "Save"
+
+    assert_text "Drink was successfully created"
+    assert_text "What's the Drink?"
+  end
 
   test "destroying a Drink as non user" do
     visit drinks_url
