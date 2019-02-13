@@ -1,9 +1,12 @@
 require 'test_helper'
 
 class ConsumedDrinksControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
   setup do
     @consumed_drink = consumed_drinks(:one)
     @categories = drink_categories(:one)
+    @user = users(:one)
+    sign_in @user
   end
 
   test "should get index" do
@@ -18,7 +21,15 @@ class ConsumedDrinksControllerTest < ActionDispatch::IntegrationTest
 
   test "should create consumed_drink" do
     assert_difference('ConsumedDrink.count') do
-      post consumed_drinks_url, params: { consumed_drink: { amount_consumed: @consumed_drink.amount_consumed, drink_id: @consumed_drink.drink_id, next_day_condition: @consumed_drink.next_day_condition, price_paid: @consumed_drink.price_paid, user_id: @consumed_drink.user_id } }
+      post consumed_drinks_url, params: { 
+        consumed_drink: 
+          { 
+            amount_consumed: @consumed_drink.amount_consumed,
+            drink_id: @consumed_drink.drink_id,
+            next_day_condition: @consumed_drink.next_day_condition,
+            price_paid: @consumed_drink.price_paid,
+           }
+        }
     end
 
     assert_redirected_to consumed_drink_url(ConsumedDrink.last)

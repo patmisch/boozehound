@@ -70,27 +70,13 @@
 
     <div class="field">
       <div class="control">
-        <%= form.label :price_paid, class: 'label is-large' %>
-        <%= form.number_field :price_paid, class: 'input is-large' %>
+        <%= form.label 'Price Paid (optional)', class: 'label is-large' %>
+        <%= form.number_field :price_paid, class: 'input is-large', placeholder: '5.02' %>
       </div>
-    </div>
-
-    <div class="field">
-      <div class="control">
-        <%= form.label :amount_consumed, class:'label is-large' %>
-        <%= form.number_field :amount_consumed, class: 'input is-large' %>
-      </div>
-    </div>
-
-
-
-    <div class="field">
-      <%= form.label :next_day_condition %>
-      <%= form.number_field :next_day_condition %>
     </div>
 
     <div class="actions">
-      <%= form.submit %>
+      <%= form.submit "Continue", class: 'button is-primary' %>
     </div>
   </div>
 <% end %>

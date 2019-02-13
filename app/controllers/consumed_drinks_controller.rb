@@ -1,5 +1,6 @@
 class ConsumedDrinksController < ApplicationController
   before_action :set_consumed_drink, only: [:show, :edit, :update, :destroy]
+  before_action :handle_from_saved_drink, only: [:new, :create, :edit]
 
   # GET /consumed_drinks
   # GET /consumed_drinks.json
@@ -15,8 +16,6 @@ class ConsumedDrinksController < ApplicationController
   # GET /consumed_drinks/new
   def new
     @consumed_drink = ConsumedDrink.new
-    @drink = Drink.includes(:purchase_sizes).find_by_id(params[:drink_id])
-    @purchase_sizes = @drink ? @drink.purchase_sizes : []
   end
 
   # GET /consumed_drinks/1/edit
@@ -27,6 +26,7 @@ class ConsumedDrinksController < ApplicationController
   # POST /consumed_drinks.json
   def create
     @consumed_drink = ConsumedDrink.new(consumed_drink_params)
+    @consumed_drink.user = current_user
 
     respond_to do |format|
       if @consumed_drink.save
@@ -74,8 +74,14 @@ class ConsumedDrinksController < ApplicationController
       @consumed_drink = ConsumedDrink.find(params[:id])
     end
 
+    def handle_from_saved_drink
+      @drink = Drink.includes(:purchase_sizes).find_by_id(params[:drink_id])
+      @purchase_sizes = @drink ? @drink.purchase_sizes : []
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def consumed_drink_params
       params.require(:consumed_drink).permit(:user_id, :drink_id, :price_paid, :amount_consumed, :next_day_condition)
     end
+
 end
