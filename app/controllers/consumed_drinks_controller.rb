@@ -33,6 +33,7 @@ class ConsumedDrinksController < ApplicationController
         format.html { redirect_to @consumed_drink, notice: 'Consumed drink was successfully created.' }
         format.json { render :show, status: :created, location: @consumed_drink }
       else
+        flash[:error] = "WTF"
         format.html { render :new }
         format.json { render json: @consumed_drink.errors, status: :unprocessable_entity }
       end

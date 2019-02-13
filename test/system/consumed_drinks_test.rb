@@ -1,51 +1,45 @@
-# require "application_system_test_case"
+require "application_system_test_case"
 
-# class ConsumedDrinksTest < ApplicationSystemTestCase
-#   setup do
-#     @consumed_drink = consumed_drinks(:one)
-#   end
+class ConsumedDrinksTest < ApplicationSystemTestCase
+  include Devise::Test::IntegrationHelpers
+  setup do
+    # @consumed_drink = consumed_drinks(:one)
+    @drink_category = drink_categories(:one)
+    @purchase_size = purchase_sizes(:one)
+    @producer = producers(:one)
+    @purchase_size.drink_category = @drink_category
+    @purchase_size.save
+    @drink = drinks(:one)
+    @drink.drink_category = @drink_category
+    @drink.producer = @producer
+    @drink.save
+    @user = users(:one)
+    sign_in @user
+  end
 
-#   test "visiting the index" do
-#     visit consumed_drinks_url
-#     assert_selector "h1", text: "Consumed Drinks"
-#   end
 
-#   test "creating a Consumed drink" do
-#     visit consumed_drinks_url
-#     click_on "New Consumed Drink"
+  test "creating a Consumed drink" do
+    visit new_consumed_drink_url
 
-#     fill_in "Amount consumed", with: @consumed_drink.amount_consumed
-#     fill_in "Drink", with: @consumed_drink.drink_id
-#     fill_in "Next day condition", with: @consumed_drink.next_day_condition
-#     fill_in "Price paid", with: @consumed_drink.price_paid
-#     fill_in "User", with: @consumed_drink.user_id
-#     click_on "Create Consumed drink"
+    fill_in "drink_search", with: "MyStrin" 
+    click_on "#{@drink.producer.name} - #{@drink.name}"
+    assert_selector "option", text: @purchase_size.name
 
-#     assert_text "Consumed drink was successfully created"
-#     click_on "Back"
-#   end
+    fill_in "consumed_drink[price_paid]", with: "10.4"
 
-#   test "updating a Consumed drink" do
-#     visit consumed_drinks_url
-#     click_on "Edit", match: :first
+    click_on "Continue", match: :first
 
-#     fill_in "Amount consumed", with: @consumed_drink.amount_consumed
-#     fill_in "Drink", with: @consumed_drink.drink_id
-#     fill_in "Next day condition", with: @consumed_drink.next_day_condition
-#     fill_in "Price paid", with: @consumed_drink.price_paid
-#     fill_in "User", with: @consumed_drink.user_id
-#     click_on "Update Consumed drink"
+    assert_text "Consumed drink was successfully created"
 
-#     assert_text "Consumed drink was successfully updated"
-#     click_on "Back"
-#   end
+  end
 
-#   test "destroying a Consumed drink" do
-#     visit consumed_drinks_url
-#     page.accept_confirm do
-#       click_on "Destroy", match: :first
-#     end
 
-#     assert_text "Consumed drink was successfully destroyed"
-#   end
-# end
+  test "destroying a Consumed drink" do
+    visit consumed_drinks_url
+    page.accept_confirm do
+      click_on "Destroy", match: :first
+    end
+
+    assert_text "Consumed drink was successfully destroyed"
+  end
+end

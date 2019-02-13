@@ -29,6 +29,7 @@
         data-target="autocomplete.input"
         data-action="keyup->autocomplete#search"
         autocomplete="off"
+        name="drink_search"
         value="<%= created_drink_name(drink) %>"
       >
     </div>
@@ -71,12 +72,14 @@
     <div class="field">
       <div class="control">
         <%= form.label 'Price Paid (optional)', class: 'label is-large' %>
-        <%= form.number_field :price_paid, class: 'input is-large', placeholder: '5.02' %>
+        <%= form.text_field :price_paid, class: 'input is-large', placeholder: '5.02' %>
       </div>
     </div>
 
     <div class="actions">
-      <%= form.submit "Continue", class: 'button is-primary' %>
+      <button class="button is-primary">
+        Continue
+      </button>
     </div>
   </div>
 <% end %>
