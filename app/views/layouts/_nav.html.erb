@@ -1,15 +1,22 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar" role="navigation" aria-label="main navigation" data-controller="application">
   <div class="navbar-brand">
     <%= link_to image_tag("buck-logo"), root_url, class: 'navbar-item' %>
     <h1 class="navbar-item has-text-weight-bold">BoozeHound</h1> 
-    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+    <a 
+      role="button"
+      class="navbar-burger burger"
+      aria-label="menu"
+      aria-expanded="false"
+      data-target="application.hamburger"
+      data-action="application#toggleMenu"
+     >
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
     </a>
   </div>
 
-  <div id="navbarBasicExample" class="navbar-menu">
+  <div id="navbarBasicExample" class="navbar-menu", data-target="application.menu">
     <div class="navbar-start">
       <%= link_to 'Home', root_url, class: "navbar-item" %>
 

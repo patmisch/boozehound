@@ -34,6 +34,10 @@ Rails.application.routes.draw do
     collection do
       get 'purchase_sizes_for_select'
     end
+
+    member do
+      get 'amount_consumed'
+    end
   end
 
   resources :drink_categories

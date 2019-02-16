@@ -30,7 +30,7 @@ class ConsumedDrinksController < ApplicationController
 
     respond_to do |format|
       if @consumed_drink.save
-        format.html { redirect_to @consumed_drink, notice: 'Consumed drink was successfully created.' }
+        format.html { redirect_to amount_consumed_consumed_drink_path(@consumed_drink), notice: 'Consumed drink was successfully created.' }
         format.json { render :show, status: :created, location: @consumed_drink }
       else
         flash[:error] = "WTF"
@@ -68,6 +68,11 @@ class ConsumedDrinksController < ApplicationController
     @purchase_sizes = Drink.find(params[:drink_id]).purchase_sizes
     render layout: false
   end
+
+  def amount_consumed
+  
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
