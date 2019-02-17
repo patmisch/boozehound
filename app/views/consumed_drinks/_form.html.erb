@@ -59,7 +59,10 @@
       <div class="control">
         <label class="label is-large">Amount Purchased</label>
         <div class="select is-large">
-          <select  data-target="consumed-drinks.purchaseSizeSelect">
+          <select
+            data-target="consumed-drinks.purchaseSizeSelect"
+            name="consumed_drink[purchase_size_id]"
+          >
             <option>Select a Size</option>
             <% @purchase_sizes.each do |size| %>
               <option value="<%= size.id %>"><%= size.name %></option>

@@ -15,7 +15,6 @@ export default class extends Controller {
   }
 
   hideElement(element) {
-    console.log(element);
     element.classList.add('is-hidden');
   }
 
