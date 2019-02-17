@@ -1,8 +1,8 @@
-<form>
+<%= form_with model: @consumed_drink do |form| %>
   <div class="field">
     <label class="label is-large">How Much Did You Drink?</label>
     <div class="control">
-      <input class="input is-large" type="text" placeholder="Amount">
+      <input name="consumed_drink[amount_consumed]" class="input is-large" type="text" placeholder="Amount">
     </div>
   </div>
   <div class="field is-grouped">
@@ -13,4 +13,4 @@
       <button class="button is-dark">Next</button>
     </div>
   </div>
-</form>
+<% end %>
