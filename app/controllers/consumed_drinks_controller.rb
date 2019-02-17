@@ -1,5 +1,6 @@
 class ConsumedDrinksController < ApplicationController
-  before_action :set_consumed_drink, only: [:show, :edit, :update, :destroy, :amount_consumed]
+  before_action :set_consumed_drink, only: 
+    [:show, :edit, :update, :destroy, :amount_consumed, :next_day_condition]
   before_action :handle_from_saved_drink, only: [:new, :create, :edit]
 
   # GET /consumed_drinks
@@ -70,13 +71,16 @@ class ConsumedDrinksController < ApplicationController
   end
 
   def amount_consumed
-  
   end
+
+  def 
 
   def save_amount_consumed
     @consumed_drink.update_columns(amount_consumed: params[:amount])
   end
 
+  def next_day_condition
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

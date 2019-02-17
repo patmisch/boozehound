@@ -1,0 +1,22 @@
+<%= form_with model: @consumed_drink do |form| %>
+  <div class="field">
+    <label class="label is-large">How did you feel the next morning?</label>
+    <div class="control">
+      <select name="consumed_drink[next_day_condition]" class="input is-large" type="text">
+        <option value="1">1 - Very Bad</option>
+        <% (2..9).each do |x| %>
+          <option value="<%= x %>"><%= x %></option>
+        <% end %>
+        <option value="10">10 - Excellent</option>
+      </select>
+    </div>
+  </div>
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-primary">Done</button>
+    </div>
+    <div class="control">
+      <button class="button is-dark">Next</button>
+    </div>
+  </div>
+<% end %>
