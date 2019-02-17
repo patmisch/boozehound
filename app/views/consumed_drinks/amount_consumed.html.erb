@@ -1,16 +1,99 @@
-<%= form_with model: @consumed_drink do |form| %>
-  <div class="field">
-    <label class="label is-large">How Much Did You Drink?</label>
-    <div class="control">
-      <input name="consumed_drink[amount_consumed]" class="input is-large" type="text" placeholder="Amount">
+<div
+  data-controller="ask-later"
+>
+  <%= form_with model: @consumed_drink do |form| %>
+    <div class="field">
+      <label class="label is-large">How much did you drink?</label>
+      <div class="control">
+        <input name="consumed_drink[amount_consumed]" class="input is-large" type="text" placeholder="Amount">
+      </div>
+    </div>
+    <div class="field is-grouped">
+      <div class="control">
+        <button class="button is-primary">Done</button>
+      </div>
+      <div class="control">
+        <button class="button is-dark">Next</button>
+      </div>
+      <div class="control">
+        <button
+          class="button is-light"
+          data-action="ask-later#showModal"
+        >
+          Ask Me Later
+        </button>
+      </div>
+    </div>
+  <% end %>
+
+  <div
+    class="modal"
+    data-target="ask-later.modal"
+  >
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Ask Me Later</p>
+        <button
+          class="delete"
+          aria-label="close"
+          data-action="ask-later#closeModal"
+        ></button>
+      </header>
+      <section class="modal-card-body">
+        <%= form_with url: ask_later_consumed_drink_path do |form| %>
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label">In</label>
+            </div>
+            <div class="field-body">
+              <div class="field has-addons">
+                <p class="control">
+                  <input class="input" type="number" min="0" step="1" placeholder="2">
+                </p>
+                <p class="control">
+                  <a class="button is-static">
+                    Hours
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="field is-horizontal">
+            <div class="field-label is-normal">
+              <label class="label">And</label>
+            </div>
+            <div class="field-body">
+              <div class="field has-addons">
+                <p class="control">
+                  <input class="input" type="number" min="0" max="60" step="1" placeholder="30">
+                </p>
+                <p class="control">
+                  <a class="button is-static">
+                    Minutes
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <label class="radio">
+              <input type="radio" name="foobar">
+                Email
+              </label>
+              <label class="radio">
+              <input type="radio" name="foobar" checked>
+                Text Message
+              </label>
+            </div>
+          </div>
+        <% end %>
+      </section>
+      <footer class="modal-card-foot">
+        <button class="button is-success">Save changes</button>
+        <button class="button">Cancel</button>
+      </footer>
     </div>
   </div>
-  <div class="field is-grouped">
-    <div class="control">
-      <button class="button is-primary">Done</button>
-    </div>
-    <div class="control">
-      <button class="button is-dark">Next</button>
-    </div>
-  </div>
-<% end %>
+</div>

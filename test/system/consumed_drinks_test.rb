@@ -30,6 +30,11 @@ class ConsumedDrinksTest < ApplicationSystemTestCase
     click_on "Continue", match: :first
 
     assert_text "Consumed drink was successfully created"
+    assert_text "How much did you drink?"
+
+    click_on "Ask Me Later"
+    assert_selector "div.modal.is-active"
+    
 
   end
 
