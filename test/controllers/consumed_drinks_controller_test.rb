@@ -5,6 +5,8 @@ class ConsumedDrinksControllerTest < ActionDispatch::IntegrationTest
   setup do
     @consumed_drink = consumed_drinks(:one)
     @categories = drink_categories(:one)
+    @drink = drinks(:one)
+    @consumed_drink.drink_id = @drink.id
     @user = users(:one)
     sign_in @user
   end
