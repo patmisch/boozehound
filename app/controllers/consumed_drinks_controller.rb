@@ -1,6 +1,6 @@
 class ConsumedDrinksController < ApplicationController
   before_action :set_consumed_drink, only: 
-    [:show, :edit, :update, :destroy, :amount_consumed, :next_day_condition]
+    [:show, :edit, :update, :destroy, :amount_consumed, :next_day_condition, :ask_later]
   before_action :handle_from_saved_drink, only: [:new, :create, :edit]
 
   # GET /consumed_drinks
@@ -83,7 +83,7 @@ class ConsumedDrinksController < ApplicationController
   end
 
   def ask_later
-    AskAboutDrinkJob.set(wait: 30.seconds).perform_later
+    AskAboutDrinkJob.set(wait: 3.seconds).perform_later(current_user, @consumed_drink)
   end
 
   private
