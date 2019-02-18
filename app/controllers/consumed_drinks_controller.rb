@@ -83,7 +83,7 @@ class ConsumedDrinksController < ApplicationController
   end
 
   def ask_later
-
+    AskAboutDrinkJob.set(wait: 30.seconds).perform_later
   end
 
   private

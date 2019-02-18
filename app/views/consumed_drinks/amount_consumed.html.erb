@@ -40,60 +40,60 @@
           data-action="ask-later#closeModal"
         ></button>
       </header>
+      <%= form_with url: ask_later_consumed_drink_path do |form| %>
       <section class="modal-card-body">
-        <%= form_with url: ask_later_consumed_drink_path do |form| %>
-          <div class="field is-horizontal">
-            <div class="field-label is-normal">
-              <label class="label">In</label>
-            </div>
-            <div class="field-body">
-              <div class="field has-addons">
-                <p class="control">
-                  <input class="input" type="number" min="0" step="1" placeholder="2">
-                </p>
-                <p class="control">
-                  <a class="button is-static">
-                    Hours
-                  </a>
-                </p>
-              </div>
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">In</label>
+          </div>
+          <div class="field-body">
+            <div class="field has-addons">
+              <p class="control">
+                <input class="input" type="number" min="0" step="1" placeholder="2">
+              </p>
+              <p class="control">
+                <a class="button is-static">
+                  Hours
+                </a>
+              </p>
             </div>
           </div>
-          <div class="field is-horizontal">
-            <div class="field-label is-normal">
-              <label class="label">And</label>
-            </div>
-            <div class="field-body">
-              <div class="field has-addons">
-                <p class="control">
-                  <input class="input" type="number" min="0" max="60" step="1" placeholder="30">
-                </p>
-                <p class="control">
-                  <a class="button is-static">
-                    Minutes
-                  </a>
-                </p>
-              </div>
+        </div>
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">And</label>
+          </div>
+          <div class="field-body">
+            <div class="field has-addons">
+              <p class="control">
+                <input class="input" type="number" min="0" max="60" step="1" placeholder="30">
+              </p>
+              <p class="control">
+                <a class="button is-static">
+                  Minutes
+                </a>
+              </p>
             </div>
           </div>
-          <div class="field">
-            <div class="control">
-              <label class="radio">
-              <input type="radio" name="foobar">
-                Email
-              </label>
-              <label class="radio">
-              <input type="radio" name="foobar" checked>
-                Text Message
-              </label>
-            </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <label class="radio">
+            <input type="radio" name="foobar">
+              Email
+            </label>
+            <label class="radio">
+            <input type="radio" name="foobar" checked>
+              Text Message
+            </label>
           </div>
-        <% end %>
+        </div>
       </section>
       <footer class="modal-card-foot">
         <button class="button is-success">Save changes</button>
         <button class="button">Cancel</button>
       </footer>
+      <% end %>
     </div>
   </div>
 </div>
