@@ -5,7 +5,7 @@
     <div class="field">
       <label class="label is-large">How much did you drink?</label>
       <div class="control">
-        <input name="consumed_drink[amount_consumed]" class="input is-large" type="text" placeholder="Amount">
+        <%= form.text_field :amount_consumed, class:'input is-large', placeholder: '5' %>
       </div>
     </div>
     <div class="field is-grouped">
@@ -49,7 +49,7 @@
           <div class="field-body">
             <div class="field has-addons">
               <p class="control">
-                <input class="input" type="number" min="0" step="1" placeholder="2">
+                <input name="in_hours" class="input" type="number" min="0" step="1" placeholder="2">
               </p>
               <p class="control">
                 <a class="button is-static">
@@ -66,7 +66,7 @@
           <div class="field-body">
             <div class="field has-addons">
               <p class="control">
-                <input class="input" type="number" min="0" max="60" step="1" placeholder="30">
+                <input name="in_minutes" class="input" type="number" min="0" max="60" step="1" placeholder="30">
               </p>
               <p class="control">
                 <a class="button is-static">
@@ -79,11 +79,11 @@
         <div class="field">
           <div class="control">
             <label class="radio">
-            <input type="radio" name="foobar">
+            <input type="radio" name="notification-method">
               Email
             </label>
             <label class="radio">
-            <input type="radio" name="foobar" checked>
+            <input type="radio" name="notification-method" checked>
               Text Message
             </label>
           </div>

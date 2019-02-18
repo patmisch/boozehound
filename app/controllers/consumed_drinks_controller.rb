@@ -83,7 +83,10 @@ class ConsumedDrinksController < ApplicationController
   end
 
   def ask_later
-    AskAboutDrinkJob.set(wait: 3.seconds).perform_later(current_user, @consumed_drink)
+    in_hours = params[:in_hours].to_i
+    in_minutes = params[:in_minutes].to_i
+    AskAboutDrinkJob.set(wait: (in_hours.hours + in_minutes.minutes))
+      .perform_later(current_user, @consumed_drink)
   end
 
   private
