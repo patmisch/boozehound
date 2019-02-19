@@ -3,6 +3,7 @@
     <label class="label is-large">How did you feel the next morning?</label>
     <div class="control">
       <select name="consumed_drink[next_day_condition]" class="input is-large" type="text">
+        <option>Select</option>
         <option value="1">1 - Very Bad</option>
         <% (2..9).each do |x| %>
           <option value="<%= x %>"><%= x %></option>

@@ -1,0 +1,3 @@
+Hey <%= @user.email %>,
+You wanted to record your experience with the <%= @drink.name %> you had. Follow the link below.
+<%= link_to 'Record Drink',  follow_up_consumed_drink_url(@consumed_drink) %>

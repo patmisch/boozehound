@@ -1,4 +1,4 @@
 <p>Hey <%= @user.email %>,</p>
-<p>You wanted to record how much of that <%= @drink.name %> you had. Follow 
+<p>You wanted to record your experience with the <%= @drink.name %> you had. Follow 
     the link below.</p>
 <%= link_to 'Record Drink',  follow_up_consumed_drink_url(@consumed_drink) %>

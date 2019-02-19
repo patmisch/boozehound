@@ -101,7 +101,8 @@ class ConsumedDrinksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def consumed_drink_params
-      params.require(:consumed_drink).permit(:user_id, :drink_id, :price_paid, :amount_consumed, :next_day_condition, :purchase_size_id)
+      params.require(:consumed_drink).permit(:user_id, :drink_id, :price_paid,
+        :amount_consumed, :next_day_condition, :purchase_size_id, :verdict)
     end
 
 end
