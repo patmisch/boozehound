@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  def amount_consumed_question
+  def follow_up
     @user = params[:user]
     @drink = params[:drink]
     @consumed_drink = params[:consumed_drink]

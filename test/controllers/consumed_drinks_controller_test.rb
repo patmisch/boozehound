@@ -34,7 +34,7 @@ class ConsumedDrinksControllerTest < ActionDispatch::IntegrationTest
         }
     end
 
-    assert_redirected_to amount_consumed_consumed_drink_url(ConsumedDrink.last)
+    assert_redirected_to follow_up_consumed_drink_url(ConsumedDrink.last)
   end
 
   test "should show consumed_drink" do

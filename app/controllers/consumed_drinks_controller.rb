@@ -1,6 +1,6 @@
 class ConsumedDrinksController < ApplicationController
   before_action :set_consumed_drink, only: 
-    [:show, :edit, :update, :destroy, :amount_consumed, :next_day_condition, :ask_later]
+    [:show, :edit, :update, :destroy, :follow_up, :next_day_condition, :ask_later]
   before_action :handle_from_saved_drink, only: [:new, :create, :edit]
 
   # GET /consumed_drinks
@@ -31,7 +31,7 @@ class ConsumedDrinksController < ApplicationController
 
     respond_to do |format|
       if @consumed_drink.save
-        format.html { redirect_to amount_consumed_consumed_drink_path(@consumed_drink), notice: 'Consumed drink was successfully created.' }
+        format.html { redirect_to follow_up_consumed_drink_path(@consumed_drink), notice: 'Consumed drink was successfully created.' }
         format.json { render :show, status: :created, location: @consumed_drink }
       else
         format.html { render :new }
@@ -69,7 +69,7 @@ class ConsumedDrinksController < ApplicationController
     render layout: false
   end
 
-  def amount_consumed
+  def follow_up
   end
 
   def 

@@ -36,7 +36,7 @@ Rails.application.routes.draw do
     end
 
     member do
-      get 'amount_consumed'
+      get 'follow_up'
       get 'next_day_condition'
       post 'ask_later'
     end
