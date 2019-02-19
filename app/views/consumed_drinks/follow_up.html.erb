@@ -3,7 +3,7 @@
 >
   <%= form_with model: @consumed_drink do |form| %>
     <div class="field">
-      <label class="label is-large">How much did you drink?</label>
+      <label class="label is-large">How many <%= @consumed_drink.purchase_size.single_serving_name.pluralize %> did you drink?</label>
       <div class="control">
         <%= form.text_field :amount_consumed, class:'input is-large', placeholder: '5' %>
       </div>

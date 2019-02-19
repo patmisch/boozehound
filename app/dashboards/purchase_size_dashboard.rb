@@ -13,6 +13,8 @@ class PurchaseSizeDashboard < Administrate::BaseDashboard
     name: Field::String,
     units: Field::Number.with_options(decimals: 2),
     unit_type: Field::String,
+    single_serving_name: Field::String,
+    single_serving_amount: Field::Number.with_options(decimals: 2),
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -27,6 +29,9 @@ class PurchaseSizeDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :units,
+    :unit_type,
+    :single_serving_amount,
+    :single_serving_name,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -37,6 +42,8 @@ class PurchaseSizeDashboard < Administrate::BaseDashboard
     :name,
     :units,
     :unit_type,
+    :single_serving_amount,
+    :single_serving_name,
     :created_at,
     :updated_at,
   ].freeze
@@ -48,6 +55,8 @@ class PurchaseSizeDashboard < Administrate::BaseDashboard
     :drink_category,
     :name,
     :units,
+    :single_serving_amount,
+    :single_serving_name,
     :unit_type,
   ].freeze
 
