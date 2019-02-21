@@ -9,7 +9,7 @@ module ConsumedDrinksHelper
 
   def next_day_choices
     [
-      ["Ask me later"],
+      ["Ask me later", -1],
       ["I don't want to share", 0],
       ["1 - Very Bad", 1],
       ["2", 2],
@@ -26,10 +26,17 @@ module ConsumedDrinksHelper
 
   def verdict_choices
     [
-      ['Ask me later'],
+      ['Ask me later', -1],
       ['Not a fan', 0],
       ['It was ok', 1],
       ['Excellent', 2],
     ]
+  end
+
+  def amount_choices
+    [
+      ['Ask me later', -1],
+      ["Doesn't matter", nil],
+    ] + [*1..100]
   end
 end

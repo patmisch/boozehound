@@ -1,26 +1,74 @@
 <div
-  data-controller="ask-later"
+  data-controller="consumed-drinks"
 >
   <%= form_with model: @consumed_drink do |form| %>
     <div class="field">
       <label class="label is-large">How did you like <%= @consumed_drink.drink.name %>?</label>
       <div class="control is-expanded">
         <div class="select is-large is-fullwidth">
-          <%= form.select :verdict, verdict_choices %>
+          <%= form.select :verdict, verdict_choices, {},
+            {'data-action': 'consumed-drinks#optionSelected', 'data-target': 'consumed-drinks.selectField'}
+          %>
         </div>
       </div>
     </div>
     <div class="field">
       <label class="label is-large">How many <%= @consumed_drink.purchase_size.single_serving_name.pluralize %> did you drink?</label>
-      <div class="control">
-        <%= form.text_field :amount_consumed, class:'input is-large', placeholder: '5' %>
+      <div class="control is-expanded">
+        <div class="select is-large is-fullwidth">
+          <%= form.select :amount_consumed, amount_choices, {},
+            {'data-action': 'consumed-drinks#optionSelected', 'data-target': 'consumed-drinks.selectField'}
+          %>
+        </div>
       </div>
     </div>
     <div class="field">
       <label class="label is-large">How did you feel the next morning?</label>
       <div class="control is-expanded">
         <div class="select is-large is-fullwidth">
-          <%= form.select :next_day_condition, next_day_choices %>
+          <%= form.select :next_day_condition, next_day_choices, {},
+            {'data-action': 'consumed-drinks#optionSelected', 'data-target': 'consumed-drinks.selectField'}
+          %>
+        </div>
+      </div>
+    </div>
+    <div class="box" data-target="consumed-drinks.askLaterForm">
+      <label class="label is-large">We'll ask you in:</label>
+      <div class="field has-addons">
+        <div class="control is-expanded">
+          <div class="select is-large is-fullwidth">
+            <%= select_tag :ask_later_hours, options_for_select(0..72) %>
+          </div>
+        </div>
+        <p class="control">
+          <a class="button is-static is-large">
+            Hours
+          </a>
+        </p>
+      </div>
+      <label class="label is-large">And</label>
+      <div class="field has-addons">
+        <div class="control is-expanded">
+          <div class="select is-large is-fullwidth">
+            <%= select_tag :ask_later_minutes, options_for_select(0..59) %>
+          </div>
+        </div>
+        <p class="control">
+          <a class="button is-static is-large">
+            Minutes
+          </a>
+        </p>
+      </div>
+      <div class="field">
+        <div class="control">
+          <label class="radio">
+          <input type="radio" name="notification-method">
+            Email
+          </label>
+          <label class="radio">
+          <input type="radio" name="notification-method" checked>
+            Text Message
+          </label>
         </div>
       </div>
     </div>
@@ -28,88 +76,6 @@
       <div class="control">
         <button class="button is-primary">Done</button>
       </div>
-      <div class="control">
-        <button class="button is-dark">Next</button>
-      </div>
-      <div class="control">
-        <button
-          class="button is-light"
-          data-action="ask-later#showModal"
-        >
-          Ask Me Later
-        </button>
-      </div>
     </div>
   <% end %>
-
-  <div
-    class="modal"
-    data-target="ask-later.modal"
-  >
-    <div class="modal-background"></div>
-    <div class="modal-card">
-      <header class="modal-card-head">
-        <p class="modal-card-title">Ask Me Later</p>
-        <button
-          class="delete"
-          aria-label="close"
-          data-action="ask-later#closeModal"
-        ></button>
-      </header>
-      <%= form_with url: ask_later_consumed_drink_path do |form| %>
-      <section class="modal-card-body">
-        <div class="field is-horizontal">
-          <div class="field-label is-normal">
-            <label class="label">In</label>
-          </div>
-          <div class="field-body">
-            <div class="field has-addons">
-              <p class="control">
-                <input name="in_hours" class="input" type="number" min="0" step="1" placeholder="2">
-              </p>
-              <p class="control">
-                <a class="button is-static">
-                  Hours
-                </a>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="field is-horizontal">
-          <div class="field-label is-normal">
-            <label class="label">And</label>
-          </div>
-          <div class="field-body">
-            <div class="field has-addons">
-              <p class="control">
-                <input name="in_minutes" class="input" type="number" min="0" max="60" step="1" placeholder="30">
-              </p>
-              <p class="control">
-                <a class="button is-static">
-                  Minutes
-                </a>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="field">
-          <div class="control">
-            <label class="radio">
-            <input type="radio" name="notification-method">
-              Email
-            </label>
-            <label class="radio">
-            <input type="radio" name="notification-method" checked>
-              Text Message
-            </label>
-          </div>
-        </div>
-      </section>
-      <footer class="modal-card-foot">
-        <button class="button is-success">Save changes</button>
-        <button class="button">Cancel</button>
-      </footer>
-      <% end %>
-    </div>
-  </div>
 </div>
