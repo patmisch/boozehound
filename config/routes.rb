@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :drink_categories
       resources :producers
       resources :purchase_sizes
+      resources :drink_types
       root to: "users#index"
     end
   devise_for :users
@@ -18,6 +19,12 @@ Rails.application.routes.draw do
 
 
   resources :producers do
+    collection do
+      get 'search'
+    end
+  end
+
+  resources :drink_types do
     collection do
       get 'search'
     end

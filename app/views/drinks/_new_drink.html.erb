@@ -1,7 +1,7 @@
 <div
   class="field"
   data-controller="autocomplete"
-  data-autocomplete-search-url="<%= search_producers_path %>"
+  data-autocomplete-search-url="<%= search_producers_url %>"
   data-autocomplete-save-key="selectedProducerId"
 >
   <div class="control">
@@ -40,6 +40,39 @@
       placeholder="Drink"
       autocomplete="off"
     /> 
+  </div>
+</div>
+<div
+  class="field"
+  data-controller="autocomplete"
+  data-autocomplete-search-url="<%= search_drink_types_url(category: @category) %>"
+  data-autocomplete-save-key="selectedDrinkTypeId"
+>
+  <div class="control">
+    <label class="label is-large">What Type?</label>
+    <input
+      class="input is-large"
+      name="drink_type_text"
+      placeholder="Enter Type"
+      data-target="autocomplete.input"
+      data-action="keyup->autocomplete#search"
+      autocomplete="off"
+    />
+    <input
+      type="hidden"
+      name="drink[drink_type_id]"
+      data-target="autocomplete.hiddenValue"
+    />
+  </div>
+  <div
+    class="dropdown"
+    data-target="autocomplete.dropdown"
+  >
+    <div class="dropdown-menu" role="menu">
+      <div class="dropdown-content">
+        <div class="buttons dropdown-item" data-target="autocomplete.content"></div>
+      </div>
+    </div>
   </div>
 </div>
 <div class="field">

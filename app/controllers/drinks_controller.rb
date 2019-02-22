@@ -31,6 +31,11 @@ class DrinksController < ApplicationController
       producer = Producer.create(name: params[:producer_text])
       @drink.producer = producer
     end
+    
+    if drink_params[:drink_type_id].blank?
+      drink_type = DrinkType.create(name: params[:drink_type_text], drink_category_id: drink_params[:drink_category_id])
+      @drink.drink_type = drink_type
+    end
     @categories = DrinkCategory.all
     respond_to do |format|
       if @drink.save
@@ -91,6 +96,6 @@ class DrinksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def drink_params
-      params.require(:drink).permit(:name, :drink_category_id, :producer_id, :abv)
+      params.require(:drink).permit(:name, :drink_category_id, :producer_id, :abv, :drink_type_id)
     end
 end

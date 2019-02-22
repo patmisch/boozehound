@@ -19,5 +19,6 @@ class Drink < ApplicationRecord
 
   belongs_to :producer
   belongs_to :drink_category
+  belongs_to :drink_type
   has_many :purchase_sizes, through: :drink_category
 end

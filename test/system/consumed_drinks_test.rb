@@ -7,11 +7,13 @@ class ConsumedDrinksTest < ApplicationSystemTestCase
     @drink_category = drink_categories(:one)
     @purchase_size = purchase_sizes(:one)
     @producer = producers(:one)
+    @drink_type = drink_types(:one)
     @purchase_size.drink_category = @drink_category
     @purchase_size.save
     @drink = drinks(:one)
     @drink.drink_category = @drink_category
     @drink.producer = @producer
+    @drink.drink_type = @drink_type
     @drink.save
     @user = users(:one)
     sign_in @user

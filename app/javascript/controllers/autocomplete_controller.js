@@ -4,7 +4,9 @@ export default class extends Controller {
   static targets = ['input', 'content', 'dropdown', 'hiddenValue'];
 
   search(e) {
-    fetch(`${this.data.get('searchUrl')}?q=${e.target.value}`)
+    const url = new URL(this.data.get('searchUrl'));
+    url.searchParams.append('q', this.inputTarget.value);
+    fetch(url)
     .then(result => result.text())
     .then(text => {
       if (text) {

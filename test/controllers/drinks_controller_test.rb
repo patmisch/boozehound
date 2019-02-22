@@ -5,9 +5,11 @@ class DrinksControllerTest < ActionDispatch::IntegrationTest
   setup do
     @producer = producers(:one)
     @categories = [drink_categories(:one)]
+    @drink_type = drink_types(:one)
     @drink = drinks(:one)
     @drink.producer = @producer
     @drink.drink_category = @categories.first
+    @drink.drink_type = @drink_type
     @user = users(:one)
 
     @user.admin = true
@@ -26,7 +28,13 @@ class DrinksControllerTest < ActionDispatch::IntegrationTest
 
   test "should create drink" do
     assert_difference('Drink.count') do
-      post drinks_url, params: { drink: { abv: @drink.abv, drink_category_id: @drink.drink_category_id, name: @drink.name, producer_id: @drink.producer_id } }
+      post drinks_url, params: { drink: 
+        { abv: @drink.abv,
+          drink_category_id: @drink.drink_category_id,
+          name: @drink.name,
+          producer_id: @drink.producer_id,
+          drink_type_id: @drink.drink_type_id,
+        } }
     end
 
     assert_redirected_to new_consumed_drink_url(drink_id: @drink.id + 1)

@@ -4,7 +4,7 @@ class DrinksTest < ApplicationSystemTestCase
   include Devise::Test::IntegrationHelpers
   setup do
     @drink = drinks(:one)
-    # @category = drink_categories(:one)
+    @category = drink_categories(:one)
   end
 
   test "visiting the index" do
@@ -14,6 +14,9 @@ class DrinksTest < ApplicationSystemTestCase
 
   test "creating a Drink with existing producer" do
     @producer = producers(:one)
+    @drink_type = drink_types(:one)
+    @drink_type.drink_category = @category
+    @drink_type.save
     visit drinks_url
     click_on "New Drink"
 
@@ -23,6 +26,8 @@ class DrinksTest < ApplicationSystemTestCase
     fill_in "producer_text", with: "Founders"
     click_on "Founders"
     fill_in "drink[name]", with: "Solid Gold"
+    fill_in "drink_type_text", with: "IPA"
+    click_on "IPA"
     fill_in "drink[abv]", with: "5.1"
 
     click_on "Save"
@@ -41,6 +46,7 @@ class DrinksTest < ApplicationSystemTestCase
 
     fill_in "producer_text", with: "New Winery"
     fill_in "drink[name]", with: "Red Blend"
+    fill_in "drink_type_text", with: "NE IPA"
     fill_in "drink[abv]", with: "12.3"
 
     click_on "Save"
