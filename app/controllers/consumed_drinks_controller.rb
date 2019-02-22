@@ -45,6 +45,9 @@ class ConsumedDrinksController < ApplicationController
   def update
     respond_to do |format|
       if @consumed_drink.update(consumed_drink_params)
+        if params[:asklater] == 'true'
+          @consumed_drink.ask_later(params[:ask_later_hours], params[:ask_later_minutes])
+        end
         format.html { redirect_to @consumed_drink, notice: 'Consumed drink was successfully updated.' }
         format.json { render :show, status: :ok, location: @consumed_drink }
       else
@@ -70,22 +73,6 @@ class ConsumedDrinksController < ApplicationController
   end
 
   def follow_up
-  end
-
-  def 
-
-  def save_amount_consumed
-    @consumed_drink.update_columns(amount_consumed: params[:amount])
-  end
-
-  def next_day_condition
-  end
-
-  def ask_later
-    in_hours = params[:in_hours].to_i
-    in_minutes = params[:in_minutes].to_i
-    AskAboutDrinkJob.set(wait: (in_hours.hours + in_minutes.minutes))
-      .perform_later(current_user, @consumed_drink)
   end
 
   private

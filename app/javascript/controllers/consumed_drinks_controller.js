@@ -1,7 +1,14 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-  static targets = ['purchaseSizeSelect', 'selectedDrink', 'hiddenForm', 'selectField', 'askLaterForm']
+  static targets = [
+    'purchaseSizeSelect',
+    'selectedDrink',
+    'hiddenForm',
+    'selectField',
+    'askLaterForm',
+    'askLater',
+  ]
 
   connect() {
     this.optionSelected();
@@ -20,11 +27,14 @@ export default class extends Controller {
   }
 
   optionSelected(e) {
+    console.log('er')
     const askLater = this.selectFieldTargets.find(item => item.value == -1);
     if (askLater) {
       this.askLaterFormTarget.classList.remove('is-hidden');
+      this.askLaterTarget.value = true;
     } else {
       this.askLaterFormTarget.classList.add('is-hidden');
+      this.askLaterTarget.value = false;
     }
   }
 }
