@@ -11,7 +11,9 @@ export default class extends Controller {
   ]
 
   connect() {
-    this.optionSelected();
+    if (this.askLaterForm) {
+      this.optionSelected();
+    }
   }
 
   drinkSelected(e) {
@@ -27,7 +29,6 @@ export default class extends Controller {
   }
 
   optionSelected(e) {
-    console.log('er')
     const askLater = this.selectFieldTargets.find(item => item.value == -1);
     if (askLater) {
       this.askLaterFormTarget.classList.remove('is-hidden');
