@@ -32,8 +32,9 @@ class ConsumedDrinksTest < ApplicationSystemTestCase
     assert_text "Consumed drink was successfully created"
     assert_text "How did you like #{@drink.name}?"
 
-    click_on "Ask Me Later"
-    assert_selector "div.modal.is-active"
+    assert_selector('div.box', visible: false)
+    select 'Ask me later', from: 'consumed_drink[verdict]'
+    assert_selector('div.box', visible: true)
     
 
   end
