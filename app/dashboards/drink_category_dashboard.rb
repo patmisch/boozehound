@@ -13,6 +13,7 @@ class DrinkCategoryDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     producer_title: Field::String,
+    single_drink_name: Field::String,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -25,6 +26,7 @@ class DrinkCategoryDashboard < Administrate::BaseDashboard
     :name,
     :created_at,
     :updated_at,
+    :single_drink_name,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -35,6 +37,7 @@ class DrinkCategoryDashboard < Administrate::BaseDashboard
     :created_at,
     :updated_at,
     :producer_title,
+    :single_drink_name,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -43,6 +46,7 @@ class DrinkCategoryDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :name,
     :producer_title,
+    :single_drink_name,
   ].freeze
 
   # Overwrite this method to customize how drink categories are displayed
