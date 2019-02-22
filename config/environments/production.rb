@@ -66,6 +66,7 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "boozehound_#{Rails.env}"
 
   config.action_mailer.perform_caching = false
+  config.action_mailer.default_url_options = { :host => 'boozehound.app' }
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {
     api_key: ENV['MAILGUN_KEY'],
