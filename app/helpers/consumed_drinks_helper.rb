@@ -39,4 +39,13 @@ module ConsumedDrinksHelper
       ["Doesn't matter", nil],
     ] + [*1..100]
   end
+
+  def amount_question_phrasing(drink)
+    if drink.purchase_size
+      name = drink.purchase_size.single_serving_name
+    else
+      name = drink.drink_category.single_drink_name
+    end
+    return name.pluralize
+  end
 end
