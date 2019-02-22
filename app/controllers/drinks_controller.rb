@@ -80,7 +80,7 @@ class DrinksController < ApplicationController
 
   def search
     @items = Drink.joins(:producer).search_by_name_and_producer(params[:q])
-      .select('drinks.id as id', "CONCAT(producers_drinks.name, ' - ', drinks.name) as name")
+      .select('drinks.id as id', "CONCAT_WS(' - ', producers_drinks.name, drinks.name, drinks.year) as name")
     if @items.any?
       render partial: 'shared/dropdown_search'
     else
@@ -96,6 +96,6 @@ class DrinksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def drink_params
-      params.require(:drink).permit(:name, :drink_category_id, :producer_id, :abv, :drink_type_id)
+      params.require(:drink).permit(:name, :drink_category_id, :producer_id, :abv, :drink_type_id, :year)
     end
 end

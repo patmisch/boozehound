@@ -14,6 +14,7 @@ class DrinkDashboard < Administrate::BaseDashboard
     drink_category: Field::BelongsTo,
     drink_type: Field::BelongsTo,
     abv: Field::Number.with_options(decimals: 2),
+    year: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -29,6 +30,7 @@ class DrinkDashboard < Administrate::BaseDashboard
     :name,
     :drink_category,
     :drink_type,
+    :year,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -40,6 +42,7 @@ class DrinkDashboard < Administrate::BaseDashboard
     :drink_category,
     :drink_type,
     :abv,
+    :year,
     :created_at,
     :updated_at,
   ].freeze
@@ -53,6 +56,7 @@ class DrinkDashboard < Administrate::BaseDashboard
     :drink_category,
     :abv,
     :drink_type,
+    :year,
   ].freeze
 
   # Overwrite this method to customize how drinks are displayed
