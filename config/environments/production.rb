@@ -70,7 +70,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {
     api_key: ENV['MAILGUN_KEY'],
-    domain: 'boozehound.app',
+    domain: 'mg.boozehound.app',
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
