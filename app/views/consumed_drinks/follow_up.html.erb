@@ -6,7 +6,7 @@
       <label class="label is-large">How did you like <%= @consumed_drink.drink.name %>?</label>
       <div class="control is-expanded">
         <div class="select is-large is-fullwidth">
-          <%= form.select :verdict, verdict_choices, {},
+          <%= form.select :verdict, verdict_choices, {prompt: 'Select One'},
             {'data-action': 'consumed-drinks#optionSelected', 'data-target': 'consumed-drinks.selectField'}
           %>
         </div>
@@ -16,7 +16,7 @@
       <label class="label is-large">How many <%= amount_question_phrasing(@consumed_drink) %> did you have?</label>
       <div class="control is-expanded">
         <div class="select is-large is-fullwidth">
-          <%= form.select :amount_consumed, amount_choices, {},
+          <%= form.select :amount_consumed, amount_choices, {prompt: 'How Many?'},
             {'data-action': 'consumed-drinks#optionSelected', 'data-target': 'consumed-drinks.selectField'}
           %>
         </div>
@@ -26,7 +26,7 @@
       <label class="label is-large">How did you feel the next morning?</label>
       <div class="control is-expanded">
         <div class="select is-large is-fullwidth">
-          <%= form.select :next_day_condition, next_day_choices, {},
+          <%= form.select :next_day_condition, next_day_choices, {prompt: 'Select Condition'},
             {'data-action': 'consumed-drinks#optionSelected', 'data-target': 'consumed-drinks.selectField'}
           %>
         </div>

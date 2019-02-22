@@ -4,6 +4,7 @@ export default class extends Controller {
   static targets = ['purchaseSizeSelect', 'selectedDrink', 'hiddenForm', 'selectField', 'askLaterForm']
 
   connect() {
+    this.optionSelected();
   }
 
   drinkSelected(e) {
