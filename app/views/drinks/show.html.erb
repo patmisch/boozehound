@@ -1,24 +1,13 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @drink.name %>
+<p class="title is-1"><%= @drink.name %>
+  <span class="tag">
+    <%= @drink.drink_type.name %>
+  </span>
+  <span class="tag">
+    <%= @drink.abv %>%
+  </span>
 </p>
+<p class="subtitle is-3 has-text-primary"><%= @drink.producer.name %></p>
 
-<p>
-  <strong>Drink category:</strong>
-  <%= @drink.drink_category_id %>
-</p>
-
-<p>
-  <strong>Producer:</strong>
-  <%= @drink.producer_id %>
-</p>
-
-<p>
-  <strong>Abv:</strong>
-  <%= @drink.abv %>
-</p>
-
-<%= link_to 'Edit', edit_drink_path(@drink) %> |
-<%= link_to 'Back', drinks_path %>
+<div class="content is-large">
+  <%= last_time_drank(@count) %>
+</div>

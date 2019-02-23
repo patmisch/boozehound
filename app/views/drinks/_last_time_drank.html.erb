@@ -1,0 +1,4 @@
+  <p>
+    You had this for the <strong><%= @count.ordinalize %></strong> time
+    on <strong><%= @last_consumed_drink.created_at.strftime("%B #{@last_consumed_drink.created_at.day.ordinalize}, %Y") %>
+  </p>
