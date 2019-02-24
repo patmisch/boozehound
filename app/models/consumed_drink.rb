@@ -3,6 +3,13 @@ class ConsumedDrink < ApplicationRecord
   belongs_to :purchase_size, optional: true
   belongs_to :drink
 
+  VERDICT_NAME = {
+    -1 => 'Ask me later',
+    0 => 'Not a fan',
+    1 => 'It was ok',
+    2 => 'Excellent',
+  }
+
   def ask_later(hours, minutes)
     in_hours = hours.to_i
     in_minutes = minutes.to_i

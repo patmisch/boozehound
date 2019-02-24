@@ -48,4 +48,9 @@ module ConsumedDrinksHelper
     end
     return name.pluralize
   end
+
+  def full_name(consumed_drink)
+    drink = consumed_drink.drink
+    return "#{drink.producer.name} - #{drink.name}"
+  end
 end
