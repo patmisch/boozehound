@@ -86,10 +86,14 @@ class DrinksController < ApplicationController
     @items = Drink.joins(:producer).search_by_name_and_producer(params[:q])
       .select('drinks.id as id', "CONCAT_WS(' - ', producers_drinks.name, drinks.name, drinks.year) as name")
     if @items.any?
-      render partial: 'shared/dropdown_search'
+      render partial: params[:partial] || 'shared/dropdown_search'
     else
       render partial: 'add_new_drink'
     end
+  end
+
+  def main_search
+  
   end
 
   private

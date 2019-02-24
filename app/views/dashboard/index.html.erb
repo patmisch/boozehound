@@ -1,7 +1,24 @@
 <h1 class="title">
-  Welcome
+  Search for a Drink
 </h1>
-<p class="subtitle">
-  Drink something.
-</p>
-<%= link_to 'New Drink', new_consumed_drink_url, class: 'button'%>
+<div
+  data-controller="drinks-search"
+  data-drinks-search-url="<%= search_drinks_url(partial: 'drinks/search_list') %>"
+>
+  <div class="field has-icons-left">
+    <div class="control has-icons-left">
+      <input
+        class="input is-large"
+        type="text"
+        placeholder="Search Here"
+        data-target="drinks-search.searchText"
+        data-action="keyup->drinks-search#search"
+        autocomplete="off"
+      >
+      <span class="icon is-medium is-left">
+        <i class="fas fa-search"></i>
+      </span>
+    </div>
+  </div>
+  <div class="content" data-target="drinks-search.content"></div>
+<div>

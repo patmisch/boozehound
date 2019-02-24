@@ -10,6 +10,7 @@ class DrinksControllerTest < ActionDispatch::IntegrationTest
     @drink.producer = @producer
     @drink.drink_category = @categories.first
     @drink.drink_type = @drink_type
+    @drink.save
     @user = users(:one)
 
     @user.admin = true
