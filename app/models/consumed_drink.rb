@@ -9,4 +9,5 @@ class ConsumedDrink < ApplicationRecord
     AskAboutDrinkJob.set(wait: (in_hours.hours + in_minutes.minutes))
       .perform_later(self)
   end
+
 end

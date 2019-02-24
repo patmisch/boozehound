@@ -10,4 +10,8 @@ module DrinksHelper
       render partial: 'last_time_drank'
     end
   end
+
+  def again?(count)
+    return count > 0 ? ' Again' : nil
+  end
 end

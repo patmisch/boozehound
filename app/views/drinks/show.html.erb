@@ -1,13 +1,19 @@
+<p class="subtitle is-3 has-text-info"><%= @drink.producer.name %></p>
 <p class="title is-1"><%= @drink.name %>
+  <% if @drink.year %>
+    <span class="tag">
+      <%= @drink.year %>
+    </span>
+  <% end %>
   <span class="tag">
     <%= @drink.drink_type.name %>
   </span>
   <span class="tag">
-    <%= @drink.abv %>%
+    <%= @drink.abv %>% ABV
   </span>
 </p>
-<p class="subtitle is-3 has-text-primary"><%= @drink.producer.name %></p>
 
 <div class="content is-large">
   <%= last_time_drank(@count) %>
+  <%= link_to "Drink It#{again?(@count)}", new_consumed_drink_path(drink_id: @drink), class: 'button is-primary is-large' %>
 </div>
