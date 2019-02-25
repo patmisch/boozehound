@@ -1,4 +1,5 @@
 class ConsumedDrinksController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_consumed_drink, only: 
     [:show, :edit, :update, :destroy, :follow_up, :next_day_condition, :ask_later]
   before_action :handle_from_saved_drink, only: [:new, :create, :edit]

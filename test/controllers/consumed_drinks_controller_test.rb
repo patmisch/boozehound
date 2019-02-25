@@ -7,8 +7,10 @@ class ConsumedDrinksControllerTest < ActionDispatch::IntegrationTest
     @categories = drink_categories(:one)
     @drink = drinks(:one)
     @consumed_drink.drink_id = @drink.id
+    @consumed_drink.save
     @user = users(:one)
     sign_in @user
+    @consumed_drink.user = @user
   end
 
   test "should get index" do

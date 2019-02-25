@@ -3,7 +3,7 @@
   <div class="card consumed-drink-card">
     <header class="card-header">
       <p class="card-header-title">
-        <%= consumed_drink.drink.name %>
+        <%= link_to consumed_drink.drink.name, consumed_drink.drink %> - <%= consumed_drink.created_at.strftime('%b %d %Y') %>
       </p>
     </header>
     <div class="card-content">
