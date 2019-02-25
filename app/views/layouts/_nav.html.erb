@@ -53,7 +53,7 @@
           <% if user_signed_in? %>
             <%= link_to 'Sign Out', destroy_user_session_url, class: 'button is-primary', method: 'delete' %>
           <% else %>
-            <%= link_to new_user_registration_url, class: 'button is-primary' do %>
+            <%= link_to new_user_session_url, class: 'button is-primary' do %>
               <strong>Sign up</strong>
             <% end %>
             <%= link_to 'Log In', new_user_session_url, class: 'button is-light' %> 
