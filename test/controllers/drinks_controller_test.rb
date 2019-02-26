@@ -3,16 +3,8 @@ require 'test_helper'
 class DrinksControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
   setup do
-    @producer = producers(:one)
-    @categories = [drink_categories(:one)]
-    @drink_type = drink_types(:one)
-    @drink = drinks(:one)
-    @drink.producer = @producer
-    @drink.drink_category = @categories.first
-    @drink.drink_type = @drink_type
-    @drink.save
+    @drink = drinks(:beer_one)
     @user = users(:one)
-
     @user.admin = true
     sign_in @user
   end
@@ -38,7 +30,7 @@ class DrinksControllerTest < ActionDispatch::IntegrationTest
         } }
     end
 
-    assert_redirected_to new_consumed_drink_url(drink_id: @drink.id + 1)
+    assert_redirected_to new_consumed_drink_url(drink_id: Drink.last.id)
   end
 
   test "should show drink" do

@@ -3,7 +3,7 @@ require "application_system_test_case"
 class DrinkCategoriesTest < ApplicationSystemTestCase
   include Devise::Test::IntegrationHelpers
   setup do
-    @drink_category = drink_categories(:one)
+    @drink_category = drink_categories(:beer)
     @user = users(:admin)
     sign_in @user
   end

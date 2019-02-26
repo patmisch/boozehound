@@ -1,9 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+beer:
   name: Beer
   producer_title: Brewery
+  single_drink_name: beer
 
-two:
+wine:
   name: Wine
   producer_title: Winery
+  single_drink_name: glass
+  
+spirit:
+  name: Spirit
+  producer_title: Distillery
+  single_drink_name: drink

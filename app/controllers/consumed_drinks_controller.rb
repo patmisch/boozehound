@@ -7,7 +7,7 @@ class ConsumedDrinksController < ApplicationController
   # GET /consumed_drinks
   # GET /consumed_drinks.json
   def index
-    @consumed_drinks = current_user.consumed_drinks.includes(drink: :producer)
+    @consumed_drinks = current_user.consumed_drinks.includes(:purchase_size, drink: [:producer, :drink_category])
   end
 
   # GET /consumed_drinks/1

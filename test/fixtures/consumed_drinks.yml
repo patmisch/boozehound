@@ -1,15 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user_id: 1
-  drink_id: 1
+  drink: beer_one
   price_paid: 1
   amount_consumed: 1
   next_day_condition: 1
+  user: one
+  purchase_size: one
 
 two:
-  user_id: 1
-  drink_id: 1
+  drink: wine_one
   price_paid: 1
   amount_consumed: 1
   next_day_condition: 1
+  user: one
+  purchase_size: two

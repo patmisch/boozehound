@@ -53,4 +53,25 @@ module ConsumedDrinksHelper
     drink = consumed_drink.drink
     return "#{drink.producer.name} - #{drink.name}"
   end
+
+  def verdict_color(consumed_drink)
+    case consumed_drink.verdict
+    when 0
+      'danger'
+    when 1
+      'warning'
+    when 2
+      'success'
+    else
+      'dark'
+    end
+  end
+
+  def amount_string(consumed_drink)
+    if consumed_drink.purchase_size
+      return pluralize(consumed_drink.amount_consumed, consumed_drink.purchase_size.single_serving_name) 
+    else
+      return pluralize(consumed_drink.amount_consumed, consumed_drink.drink.drink_category.single_drink_name)
+    end
+  end
 end

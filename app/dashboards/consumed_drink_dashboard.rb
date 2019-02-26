@@ -10,7 +10,7 @@ class ConsumedDrinkDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     user: Field::BelongsTo,
-    drink_id: Field::Number,
+    drink: Field::BelongsTo,
     price_paid: Field::Number,
     purchase_size: Field::BelongsTo,
     amount_consumed: Field::Number,
@@ -27,7 +27,7 @@ class ConsumedDrinkDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :id,
     :user,
-    :drink_id,
+    :drink,
     :price_paid,
     :purchase_size,
   ].freeze
@@ -37,7 +37,7 @@ class ConsumedDrinkDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :id,
     :user,
-    :drink_id,
+    :drink,
     :price_paid,
     :purchase_size,
     :amount_consumed,
@@ -51,7 +51,7 @@ class ConsumedDrinkDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :user,
-    :drink_id,
+    :drink,
     :price_paid,
     :purchase_size,
     :amount_consumed,

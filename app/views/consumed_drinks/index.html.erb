@@ -8,7 +8,13 @@
     </header>
     <div class="card-content">
       <p><%= consumed_drink.drink.producer.name %></p>
+      <p>Your Review: 
+        <strong class="has-text-<%= verdict_color(consumed_drink) %>"><%= ConsumedDrink::VERDICT_NAME[consumed_drink.verdict] %></strong>
+      <p>
+
+      <p>You had: <strong><%= amount_string(consumed_drink) %></strong></p>
     </div>
+
     <footer class="card-footer">
       <a href="#" class="card-footer-item">Edit</a>
       <%= link_to 'Delete', consumed_drink, method: :delete, data: { confirm: 'Are you sure?' }, class: 'card-footer-item' %>

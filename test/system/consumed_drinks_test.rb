@@ -4,18 +4,9 @@ class ConsumedDrinksTest < ApplicationSystemTestCase
   include Devise::Test::IntegrationHelpers
   setup do
     # @consumed_drink = consumed_drinks(:one)
-    @drink_category = drink_categories(:one)
-    @purchase_size = purchase_sizes(:one)
-    @producer = producers(:one)
-    @drink_type = drink_types(:one)
-    @purchase_size.drink_category = @drink_category
-    @purchase_size.save
-    @drink = drinks(:one)
-    @drink.drink_category = @drink_category
-    @drink.producer = @producer
-    @drink.drink_type = @drink_type
-    @drink.save
+    @drink = drinks(:beer_one)
     @user = users(:one)
+    @purchase_size = purchase_sizes(:one)
     sign_in @user
   end
 
@@ -23,7 +14,7 @@ class ConsumedDrinksTest < ApplicationSystemTestCase
   test "creating a Consumed drink" do
     visit new_consumed_drink_url
 
-    fill_in "drink_search", with: "MyStrin" 
+    fill_in "drink_search", with: "Beer" 
     click_on "#{@drink.producer.name} - #{@drink.name}"
     assert_selector "option", text: @purchase_size.name
 
@@ -39,15 +30,5 @@ class ConsumedDrinksTest < ApplicationSystemTestCase
     assert_selector('div.box', visible: true)
     
 
-  end
-
-
-  test "destroying a Consumed drink" do
-    visit consumed_drinks_url
-    page.accept_confirm do
-      click_on "Destroy", match: :first
-    end
-
-    assert_text "Consumed drink was successfully destroyed"
   end
 end

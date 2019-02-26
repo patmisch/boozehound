@@ -3,7 +3,7 @@ require 'test_helper'
 class DrinkCategoriesControllerTest < ActionDispatch::IntegrationTest
   include Devise::Test::IntegrationHelpers
   setup do
-    @drink_category = drink_categories(:one)
+    @drink_category = drink_categories(:beer)
     @user = users(:one)
     @user.admin = true
     sign_in @user

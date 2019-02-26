@@ -3,8 +3,6 @@ require "application_system_test_case"
 class DrinksTest < ApplicationSystemTestCase
   include Devise::Test::IntegrationHelpers
   setup do
-    @drink = drinks(:one)
-    @category = drink_categories(:one)
   end
 
   test "visiting the index" do
@@ -13,8 +11,10 @@ class DrinksTest < ApplicationSystemTestCase
   end
 
   test "creating a Drink with existing producer" do
-    @producer = producers(:one)
-    @drink_type = drink_types(:one)
+    @user = users(:one)
+    sign_in @user
+    @producer = producers(:founders)
+    @drink_type = drink_types(:ipa)
     @drink_type.drink_category = @category
     @drink_type.save
     visit drinks_url
@@ -38,6 +38,8 @@ class DrinksTest < ApplicationSystemTestCase
   end
 
   test "creating a drink with new producer" do
+    @user = users(:one)
+    sign_in @user
     visit drinks_url
     click_on "New Drink"
 

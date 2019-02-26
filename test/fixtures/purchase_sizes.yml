@@ -4,14 +4,14 @@ one:
   name: Bottle
   units: 1.5
   unit_type: MyString
-  drink_category_id: 1
-  single_serving_name: 'glass'
+  drink_category: beer
+  single_serving_name: 'can'
   single_serving_amount: 125
 
 two:
   name: MyString
   units: 1.5
   unit_type: MyString
-  drink_category_id: 1
+  drink_category: wine
   single_serving_name: 'glass'
   single_serving_amount: 125
