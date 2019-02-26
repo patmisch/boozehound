@@ -1,8 +1,13 @@
 import { Controller } from "stimulus";
+import fontawesome from '@fortawesome/fontawesome';
+import faTwitter from '@fortawesome/fontawesome-free-brands/faTwitter'
+``
 
 export default class extends Controller {
   static targets = [ 'notice', 'alert', 'hamburger', 'menu' ];
-
+  initialize() {
+    fontawesome.library.add(faTwitter);
+  }
   connect() {
   }
 
