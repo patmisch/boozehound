@@ -11,7 +11,7 @@
     </div>
     <footer class="card-footer">
       <a href="#" class="card-footer-item">Edit</a>
-      <a href="#" class="card-footer-item">Delete</a>
+      <%= link_to 'Delete', consumed_drink, method: :delete, data: { confirm: 'Are you sure?' }, class: 'card-footer-item' %>
     </footer>
   </div>
 <% end %>
