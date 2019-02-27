@@ -68,10 +68,13 @@ module ConsumedDrinksHelper
   end
 
   def amount_string(consumed_drink)
-    if consumed_drink.purchase_size
+    answered = consumed_drink.amount_consumed && consumed_drink.amount_consumed > -1
+    if consumed_drink.purchase_size && answered
       return pluralize(consumed_drink.amount_consumed, consumed_drink.purchase_size.single_serving_name) 
-    else
+    elsif answered
       return pluralize(consumed_drink.amount_consumed, consumed_drink.drink.drink_category.single_drink_name)
+    else
+        return 'N/A'
     end
   end
 end

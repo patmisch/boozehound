@@ -52,7 +52,7 @@ class ConsumedDrinksController < ApplicationController
         if params[:asklater] == 'true'
           @consumed_drink.ask_later(params[:ask_later_hours], params[:ask_later_minutes])
         end
-        format.html { redirect_to @consumed_drink, notice: 'Consumed drink was successfully updated.' }
+        format.html { redirect_to consumed_drinks_path, notice: 'Consumed drink was successfully updated.' }
         format.json { render :show, status: :ok, location: @consumed_drink }
       else
         format.html { render :edit }
