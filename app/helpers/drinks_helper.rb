@@ -18,8 +18,10 @@ module DrinksHelper
   def verdict_display(hash)
     if hash.count == 1
       modifier = hash[hash.keys.first] > 1 ? 'always' : ''
-    else
+    elsif hash.count > 0
       modifier = 'usually';
+    else
+      return nil
     end
     render 'had_it_once',
       verdict: ConsumedDrink::VERDICT_NAME[hash.keys.first],
