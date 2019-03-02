@@ -31,4 +31,9 @@ class ConsumedDrinksTest < ApplicationSystemTestCase
     
 
   end
+
+  # test "visiting index" do
+  #   visit consumed_drinks_url
+  #   assert_text "bow"
+  # end
 end

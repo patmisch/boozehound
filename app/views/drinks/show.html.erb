@@ -15,5 +15,6 @@
 
 <div class="content is-large">
   <%= last_time_drank(@count) %>
+  <%= verdict_display(@verdict_hash) %>
   <%= link_to "Drink It#{again?(@count)}", new_consumed_drink_path(drink_id: @drink), class: 'button is-primary is-large' %>
 </div>

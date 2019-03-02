@@ -27,8 +27,8 @@ module ConsumedDrinksHelper
   def verdict_choices
     [
       ['Ask me later', -1],
-      ['Not a fan', 0],
-      ['It was ok', 1],
+      ['No Good', 0],
+      ['Okay', 1],
       ['Excellent', 2],
     ]
   end
@@ -54,18 +54,6 @@ module ConsumedDrinksHelper
     return "#{drink.producer.name} - #{drink.name}"
   end
 
-  def verdict_color(consumed_drink)
-    case consumed_drink.verdict
-    when 0
-      'danger'
-    when 1
-      'warning'
-    when 2
-      'success'
-    else
-      'dark'
-    end
-  end
 
   def amount_string(consumed_drink)
     answered = consumed_drink.amount_consumed && consumed_drink.amount_consumed > -1

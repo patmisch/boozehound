@@ -7,6 +7,7 @@ one:
   next_day_condition: 1
   user: one
   purchase_size: one
+  verdict: 0
 
 two:
   drink: wine_one
@@ -15,3 +16,31 @@ two:
   next_day_condition: 1
   user: one
   purchase_size: two
+  verdict: 1
+
+three:
+  drink: beer_one
+  price_paid: 1
+  amount_consumed: 1
+  next_day_condition: 1
+  user: one
+  purchase_size: one
+  verdict: 2
+
+four:
+  drink: beer_one
+  price_paid: 1
+  amount_consumed: 1
+  next_day_condition: 1
+  user: one
+  purchase_size: one
+  verdict: 2
+
+five:
+  drink: beer_one
+  price_paid: 1
+  amount_consumed: 1
+  next_day_condition: 1
+  user: one
+  purchase_size: one
+  verdict: -1 

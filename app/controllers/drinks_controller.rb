@@ -15,6 +15,10 @@ class DrinksController < ApplicationController
     @consumed_drinks = @drink.consumed_drinks.where(user: current_user)
     @last_consumed_drink = @consumed_drinks.last
     @count = @consumed_drinks.count
+    @verdict_hash = @consumed_drinks
+      .where('verdict IS NOT NULL')
+      .where('verdict > -1')
+      .group(:verdict).order(verdict: :desc).count
   end
 
   # GET /drinks/new

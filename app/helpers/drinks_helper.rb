@@ -14,4 +14,16 @@ module DrinksHelper
   def again?(count)
     return count > 0 ? ' Again' : nil
   end
+
+  def verdict_display(hash)
+    if hash.count == 1
+      modifier = hash[hash.keys.first] > 1 ? 'always' : ''
+    else
+      modifier = 'usually';
+    end
+    render 'had_it_once',
+      verdict: ConsumedDrink::VERDICT_NAME[hash.keys.first],
+      verdict_key: hash.keys.first,
+      modifier: modifier
+  end
 end

@@ -1,4 +1,5 @@
 require "application_system_test_case"
+require "test_helper"
 
 class DrinksTest < ApplicationSystemTestCase
   include Devise::Test::IntegrationHelpers
@@ -8,6 +9,26 @@ class DrinksTest < ApplicationSystemTestCase
   test "visiting the index" do
     visit drinks_url
     assert_selector "h1", text: "Drinks"
+  end
+
+  test "visit the show page of drink had multiple times" do
+    @user = users(:one)
+    sign_in @user
+    @drink = drinks(:beer_one)
+    visit drink_url(@drink)
+
+    assert_selector "p", text: @drink.name
+    assert_selector "p", text: "You usually thought it was Excellent"
+  end
+
+  test "visits show page of drink had once" do
+    @user = users(:one)
+    sign_in @user
+    @drink = drinks(:wine_one)
+    visit drink_url(@drink)
+
+    assert_selector "p", text: @drink.name
+    assert_selector "p", text: "You thought it was Okay"
   end
 
   test "creating a Drink with existing producer" do

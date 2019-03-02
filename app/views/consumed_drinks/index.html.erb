@@ -9,7 +9,7 @@
     <div class="card-content">
       <p><%= consumed_drink.drink.producer.name %></p>
       <p>Your Review: 
-        <strong class="has-text-<%= verdict_color(consumed_drink) %>"><%= ConsumedDrink::VERDICT_NAME[consumed_drink.verdict] %></strong>
+        <strong class="has-text-<%= verdict_color(consumed_drink.verdict) %>"><%= ConsumedDrink::VERDICT_NAME[consumed_drink.verdict] %></strong>
       <p>
 
       <p>You had: <strong><%= amount_string(consumed_drink) %></strong></p>

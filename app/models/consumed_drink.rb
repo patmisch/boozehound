@@ -5,8 +5,8 @@ class ConsumedDrink < ApplicationRecord
 
   VERDICT_NAME = {
     -1 => 'Ask me later',
-    0 => 'Not a fan',
-    1 => 'It was ok',
+    0 => 'No Good',
+    1 => 'Okay',
     2 => 'Excellent',
   }
 
