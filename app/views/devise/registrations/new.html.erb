@@ -12,6 +12,27 @@
 
   <div class="field">
     <div class="control">
+      <%= f.label :username, class: 'label is-large' %>
+      <%= f.text_field :username, autofocus: true, autocomplete: "username", class: 'input is-large' %>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <%= f.label :first_name, class: 'label is-large' %>
+      <%= f.text_field :first_name, autofocus: true, autocomplete: "first name", class: 'input is-large' %>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <%= f.label :last_name, class: 'label is-large' %>
+      <%= f.text_field :last_name, autofocus: true, autocomplete: "last name", class: 'input is-large' %>
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="control">
       <%= f.label :password, class: 'label is-large' %>
       <%= f.password_field :password, autocomplete: "new-password", class: 'input is-large' %>
     </div>
