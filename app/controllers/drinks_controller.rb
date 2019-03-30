@@ -47,7 +47,7 @@ class DrinksController < ApplicationController
     @categories = DrinkCategory.all
     respond_to do |format|
       if @drink.save
-        format.html { redirect_to new_consumed_drink_path(drink_id: @drink), notice: 'Drink was successfully created.' }
+        format.html { redirect_to new_consumed_drink_path(drink_id: @drink), notice: "Thanks! We've added the drink to our database."  }
         format.json { render :show, status: :created, location: @drink }
       else
         puts @drink.errors.first.message

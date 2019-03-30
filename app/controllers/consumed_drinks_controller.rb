@@ -35,7 +35,10 @@ class ConsumedDrinksController < ApplicationController
 
     respond_to do |format|
       if @consumed_drink.save
-        format.html { redirect_to follow_up_consumed_drink_path(@consumed_drink), notice: 'Consumed drink was successfully created.' }
+        format.html { redirect_to follow_up_consumed_drink_path(@consumed_drink),
+          notice: 'Got it. Now answer the questions below. If you have not had any
+                    of your drink yet, you can always select "Ask Me Later" and we will
+                   remind you to finish your answers later.' }
         format.json { render :show, status: :created, location: @consumed_drink }
       else
         format.html { render :new }
@@ -52,7 +55,7 @@ class ConsumedDrinksController < ApplicationController
         if params[:asklater] == 'true'
           @consumed_drink.ask_later(params[:ask_later_hours], params[:ask_later_minutes])
         end
-        format.html { redirect_to consumed_drinks_path, notice: 'Consumed drink was successfully updated.' }
+        format.html { redirect_to consumed_drinks_path, notice: 'Your drinking experience has been saved successfully.' }
         format.json { render :show, status: :ok, location: @consumed_drink }
       else
         format.html { render :edit }
