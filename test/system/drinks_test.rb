@@ -53,7 +53,7 @@ class DrinksTest < ApplicationSystemTestCase
 
     click_on "Save"
 
-    assert_text "Drink was successfully created"
+    assert_text "We've added the drink to our database."
     assert_text "What's the Drink?"
     # click_on "Back"
   end
@@ -74,7 +74,7 @@ class DrinksTest < ApplicationSystemTestCase
 
     click_on "Save"
 
-    assert_text "Drink was successfully created"
+    assert_text "We've added the drink to our database."
     assert_text "What's the Drink?"
   end
 

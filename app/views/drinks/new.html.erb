@@ -1,4 +1,4 @@
-<%= form_with url: drinks_url do |form| %>
+<%= form_with url: drinks_url, multipart: true do |form| %>
 
   <% if @drink.errors.any? %>
     <div id="error_explanation">

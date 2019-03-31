@@ -15,7 +15,8 @@ class Drink < ApplicationRecord
       prefix: true
     }
   }
-  
+
+  has_one_attached :picture
 
   belongs_to :producer
   belongs_to :drink_type

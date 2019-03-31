@@ -22,7 +22,7 @@ class ConsumedDrinksTest < ApplicationSystemTestCase
 
     click_on "Continue", match: :first
 
-    assert_text "Consumed drink was successfully created"
+    assert_text "Got it."
     assert_text "How did you like #{@drink.name}?"
 
     assert_selector('div.box', visible: false)

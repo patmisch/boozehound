@@ -89,6 +89,12 @@
 <%= show_year_field(@category) %>
 <div class="field">
   <div class="control">
+    <label class="label is-large">Upload or Take a Photo</label>
+    <%= file_field :drink, :picture %>
+  </div>
+</div>
+<div class="field">
+  <div class="control">
   <button class="button is-primary is-large">Save</button>
   </div>
 </div>

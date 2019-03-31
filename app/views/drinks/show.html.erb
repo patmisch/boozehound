@@ -1,3 +1,6 @@
+<p>
+ <%= image_tag(@drink.picture) if @drink.picture.attached? %> 
+ </p>
 <p class="subtitle is-3 has-text-info"><%= @drink.producer.name %></p>
 <p class="title is-1"><%= @drink.name %>
   <% if @drink.year %>
@@ -12,6 +15,7 @@
     <%= @drink.abv %>% ABV
   </span>
 </p>
+
 
 <div class="content is-large">
   <%= last_time_drank(@count) %>
