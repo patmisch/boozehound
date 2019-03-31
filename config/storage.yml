@@ -6,6 +6,19 @@ local:
   service: Disk
   root: <%= Rails.root.join("storage") %>
 
+
+google:
+  service: GCS
+  project: boozehound-app 
+  credentials: <%= ENV['GOOGLE_APPLICATION_CREDENTIALS'] %>
+  bucket: boozehound 
+
+google_dev:
+  service: GCS
+  project: boozehound-app 
+  credentials: <%= Rails.root.join("config/secrets/boozehound-app.json") %>
+  bucket: boozehound 
+
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:
 #   service: S3
