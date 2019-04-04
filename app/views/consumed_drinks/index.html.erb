@@ -16,7 +16,7 @@
     </div>
 
     <footer class="card-footer">
-      <a href="#" class="card-footer-item">Edit</a>
+      <%= link_to 'Edit', follow_up_consumed_drink_path(consumed_drink), class: 'card-footer-item' %>
       <%= link_to 'Delete', consumed_drink, method: :delete, data: { confirm: 'Are you sure?' }, class: 'card-footer-item' %>
     </footer>
   </div>
