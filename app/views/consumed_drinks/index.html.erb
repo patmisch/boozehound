@@ -13,6 +13,9 @@
       <p>
 
       <p>You had: <strong><%= amount_string(consumed_drink) %></strong></p>
+      <% if consumed_drink.notes %>
+        <p>Notes: <strong><%= consumed_drink.notes %></strong></p>
+      <% end %>
     </div>
 
     <footer class="card-footer">

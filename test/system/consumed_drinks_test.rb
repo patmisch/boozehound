@@ -35,6 +35,7 @@ class ConsumedDrinksTest < ApplicationSystemTestCase
 
     click_on "Done", match: :first
     assert_text "Your drinking experience has been saved successfully."
+    assert_text "It was OK"
     
 
   end
