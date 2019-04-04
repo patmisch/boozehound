@@ -13,7 +13,7 @@
       <p>
 
       <p>You had: <strong><%= amount_string(consumed_drink) %></strong></p>
-      <% if consumed_drink.notes %>
+      <% unless consumed_drink.notes.blank? %>
         <p>Notes: <strong><%= consumed_drink.notes %></strong></p>
       <% end %>
     </div>
