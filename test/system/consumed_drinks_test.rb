@@ -28,6 +28,13 @@ class ConsumedDrinksTest < ApplicationSystemTestCase
     assert_selector('div.box', visible: false)
     select 'Ask me later', from: 'consumed_drink[verdict]'
     assert_selector('div.box', visible: true)
+
+    select 'Ask me later', from: 'consumed_drink[amount_consumed]'
+    select 'Ask me later', from: 'consumed_drink[next_day_condition]'
+    fill_in "consumed_drink[notes]", with: "It was OK"
+
+    click_on "Done", match: :first
+    assert_text "Your drinking experience has been saved successfully."
     
 
   end

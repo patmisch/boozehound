@@ -32,6 +32,12 @@
         </div>
       </div>
     </div>
+    <div class="field">
+      <label class="label is-large">Any notes?</label>
+      <div class="control is-expanded">
+        <%= form.text_area :notes, class: 'textarea is-large' %>
+      </div>
+    </div>
     <div class="box is-hidden" data-target="consumed-drinks.askLaterForm">
       <input value="false" name="asklater" type="hidden" data-target="consumed-drinks.askLater"/>
       <label class="label is-large">We'll ask you in:</label>

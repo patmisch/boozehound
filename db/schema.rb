@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_31_163001) do
+ActiveRecord::Schema.define(version: 2019_04_04_210618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_trgm"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2019_03_31_163001) do
     t.datetime "updated_at", null: false
     t.integer "purchase_size_id"
     t.integer "verdict"
+    t.text "notes"
   end
 
   create_table "delayed_jobs", force: :cascade do |t|
