@@ -11,4 +11,12 @@ module ApplicationHelper
       'dark'
     end
   end
+
+  def render_nav(user)
+    if user 
+      render 'layouts/user_nav'
+    else
+      render 'layouts/guest_nav'
+    end
+  end
 end
