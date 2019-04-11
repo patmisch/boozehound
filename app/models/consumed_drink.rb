@@ -17,4 +17,10 @@ class ConsumedDrink < ApplicationRecord
       .perform_later(self)
   end
 
+  def self.a_users_consumed_drinks(user)
+    includes(:purchase_size, drink: [:producer, :drink_category])
+    .where(user: user)
+    .order(created_at: :desc)
+  end
+
 end

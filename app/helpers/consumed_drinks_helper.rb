@@ -1,3 +1,5 @@
+include Pagy::Frontend
+
 module ConsumedDrinksHelper
   def created_drink_name(drink)
     drink ? drink.name : ''
