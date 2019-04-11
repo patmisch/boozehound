@@ -9,7 +9,7 @@ class ConsumedDrinksController < ApplicationController
   # GET /consumed_drinks
   # GET /consumed_drinks.json
   def index
-    @pagy, @consumed_drinks = pagy(ConsumedDrink.a_users_consumed_drinks(current_user), items: 5)
+    @pagy, @consumed_drinks = pagy(ConsumedDrink.a_users_consumed_drinks(current_user), items: 10)
   end
 
   # GET /consumed_drinks/1
