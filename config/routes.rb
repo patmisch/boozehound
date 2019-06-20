@@ -50,4 +50,5 @@ Rails.application.routes.draw do
   end
 
   resources :drink_categories
+  resources :users
 end

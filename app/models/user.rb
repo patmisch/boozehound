@@ -31,4 +31,8 @@ class User < ApplicationRecord
   def following?(other_user)
     following.include?(other_user)
   end
+
+  def full_name
+    return "#{self.first_name} #{self.last_name}"
+  end
 end
