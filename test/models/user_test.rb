@@ -3,7 +3,7 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
   test "should follow and unfollow a user" do
     pat = users(:one)
-    steve  = users(:admin)
+    steve = users(:admin)
     assert_not pat.following?(steve)
     pat.follow(steve)
     assert pat.following?(steve)
