@@ -13,6 +13,6 @@
     "webpack-dev-server": "2.11.2"
   },
   "engines": {
-    "yarn": "1.15.2"
+    "yarn": "1.17.0"
   }
 }
