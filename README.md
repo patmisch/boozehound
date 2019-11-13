@@ -1,24 +1,11 @@
-# README
+https://boozehound.app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails side-project for tracking wine/beer/spirits that you've consumed and whether you liked them or not. 
 
-Things you may want to cover:
+Used for trying out StimulusJS and other new features in Rails. 
 
-* Ruby version
+Todo:
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* [x] follower/following functionality 
+* [ ] UI for following people   
+* [ ] following feed - See what you're friends have been drinking  
